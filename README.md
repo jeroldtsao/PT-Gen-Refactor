@@ -315,7 +315,22 @@ npm run deploy
 2. 上传到 Cloudflare Worker 控制台
 3. 在「变量和机密」中添加所需环境变量
 
-## API 接口 (所有的接口请求是"POST")
+## API 接口
+
+### 图片代理接口 (GET)
+
+用于代理获取外部图片资源，解决防盗链问题：
+
+- `GET /img?url=https://img.example.com/pic.jpg` - 代理获取指定图片
+
+**使用场景**：豆瓣、Steam 等平台的图片有防盗链限制，可通过此接口代理获取。
+
+**示例**：
+```
+https://your-worker-url/img?url=https://img3.doubanio.com/view/photo/l/photo.jpg
+```
+
+### 数据接口 (POST)
 
 ### URL 参数方式（只部署后端）
 
