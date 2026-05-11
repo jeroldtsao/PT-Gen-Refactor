@@ -43,12 +43,13 @@ export const ROOT_PAGE_CONFIG = {
         "API Status": "PT-Gen API Service is running",
         Endpoints: {
             "/": "API documentation (this page)",
+            "/img?url=[image_url]": "Proxy image from external sources (supports Douban, Steam, etc.)",
             "/?source=[douban|imdb|tmdb|bgm|melon]&query=[name]":
                 "Search for media by name",
             "/?url=[media_url]": "Generate media description by URL",
         },
         Notes:
-            "Please use the appropriate source and query parameters for search, or provide a direct URL for generation.",
+            "Please use the appropriate source and query parameters for search, or provide a direct URL for generation. Use /img endpoint for image proxying.",
     },
 };
 

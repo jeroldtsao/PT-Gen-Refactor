@@ -396,6 +396,57 @@ export const makeJsonResponse = (body_update, env, status = 200) => {
 };
 
 /**
+ * Handles image proxy requests by fetching the image from the specified URL
+ * and returning it with appropriate CORS and cache headers.
+ * 通过从指定 URL 获取图片并返回带有适当 CORS 和缓存头的响应来处理图片代理请求。
+ *
+ * @param {URL} url - The parsed URL object containing the 'url' query parameter with the image URL (包含图片 URL 的 'url' 查询参数的解析 URL 对象)
+ * @returns {Promise<Response>} A Response object containing the image data or error JSON (包含图片数据或错误 JSON 的 Response 对象)
+ */
+const handleImageProxy = async (url) => {
+    const imgUrl = url.searchParams.get("url");
+    if (!imgUrl) {
+        return new Response(JSON.stringify({success: false, error: "Missing 'url' parameter"}), {
+            status: 400,
+            headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+        });
+    }
+
+    try {
+        const headers = new Headers({
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+            "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8",
+            "Referer": "https://movie.douban.com/",
+        });
+
+        const resp = await fetch(imgUrl, {headers});
+        if (!resp.ok) {
+            return new Response(JSON.stringify({success: false, error: `HTTP ${resp.status}`}), {
+                status: resp.status,
+                headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+            });
+        }
+
+        const contentType = resp.headers.get("Content-Type") || "image/jpeg";
+        return new Response(resp.body, {
+            status: 200,
+            headers: {
+                "Content-Type": contentType,
+                "Access-Control-Allow-Origin": "*",
+                "Cache-Control": "public, max-age=86400",
+            },
+        });
+    } catch (err) {
+        logger.error("Image proxy error:", err);
+        return new Response(JSON.stringify({success: false, error: err.message}), {
+            status: 500,
+            headers: {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
+        });
+    }
+};
+
+/**
  * Main request handler that routes incoming requests to appropriate handlers based on path and method.
  * Implements security checks, authentication, and rate limiting before processing.
  * 主请求处理程序，根据路径和方法将传入请求路由到适当的处理程序。
@@ -412,6 +463,14 @@ export const handleRequest = async (request, env) => {
         ip: request.headers.get("CF-Connecting-IP") || "unknown",
     });
 
+    const url = new URL(request.url);
+
+    // Handle image proxy requests / 处理图片代理请求
+    if (url.pathname === "/img" && url.searchParams.has("url")) {
+        logger.debug("📷 处理图片代理请求", {url: url.searchParams.get("url")});
+        return handleImageProxy(url);
+    }
+
     if (request.method === "OPTIONS") {
         logger.debug("↔️ OPTIONS 预检请求");
         return _handleOptionsRequest();
@@ -425,7 +484,6 @@ export const handleRequest = async (request, env) => {
         return validation.response;
     }
 
-    const url = new URL(request.url);
     const {pathname} = url;
     const {method} = request;
     const isApiPath = pathname === "/" || pathname === "/api";
