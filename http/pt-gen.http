@@ -5,21 +5,23 @@
 ### 图片代理接口
 ### ========================================
 
-### 代理豆瓣图片
+### 代理豆瓣图片（解决防盗链）
 GET {{baseUrl}}/img?url=https://img9.doubanio.com/view/photo/l/public/p2929427346.webp&key={{apiKey}}
 
 <> response/2026-05-12T105319.200.webp
 
 ### ========================================
-### URL 参数方式 - 豆瓣电影
+### 豆瓣 (Douban)
 ### ========================================
 
-### GET - 解析豆瓣电影（流浪地球2: 35267208）
+### --- URL 方式 ---
+
+### GET - 豆瓣电影（流浪地球2: 35267208）
 GET {{baseUrl}}/api?url=https://movie.douban.com/subject/35267208/&key={{apiKey}}
 
 <> response/2026-05-12T105551.200.json
 
-### POST - 解析豆瓣电影
+### POST - 豆瓣电影
 POST {{baseUrl}}/api?key={{apiKey}}
 Content-Type: application/json
 
@@ -29,83 +31,12 @@ Content-Type: application/json
 
 <> response/2026-05-12T105719.200.json
 
-### ========================================
-### URL 参数方式 - 豆瓣读书
-### ========================================
-
-### GET - 解析豆瓣读书（翠鸟谋杀案: 38229491）
+### GET - 豆瓣读书（翠鸟谋杀案: 38229491）
 GET {{baseUrl}}/api?url=https://book.douban.com/subject/38229491/&key={{apiKey}}
 
 <> response/2026-05-12T105808.200.json
 
-### ========================================
-### URL 参数方式 - IMDb
-### ========================================
-
-### GET - 解析 IMDb（魔力麦克: tt1915581）
-GET {{baseUrl}}/api?url=https://www.imdb.com/title/tt1915581/&key={{apiKey}}
-
-<> response/2026-05-12T110005.200.json
-
-### POST - 解析 IMDb（魔力麦克: tt1915581）
-POST {{baseUrl}}/api?key={{apiKey}}
-Content-Type: application/json
-
-{
-  "url": "https://www.imdb.com/title/tt1915581/"
-}
-
-<> response/2026-05-12T110401.200.json
-
-### ========================================
-### URL 参数方式 - TMDB
-### ========================================
-
-### GET - 解析 TMDB 电影（心的居所）
-GET {{baseUrl}}/api?url=https://www.themoviedb.org/movie/191&key={{apiKey}}
-
-<> response/2026-05-12T111438.200.json
-
-### GET - 解析 TMDB 电视剧（绝命毒师: 1396）
-GET {{baseUrl}}/api?url=https://www.themoviedb.org/tv/1396&key={{apiKey}}
-
-<> response/2026-05-12T111911.200.json
-
-### ========================================
-### URL 参数方式 - Bangumi
-### ========================================
-
-### GET - 解析 Bangumi
-GET {{baseUrl}}/api?url=https://bgm.tv/subject/333890&key={{apiKey}}
-
-<> response/2026-05-12T111801.200.json
-
-### ========================================
-### URL 参数方式 - Steam
-### ========================================
-
-### GET - 解析 Steam（Cyberpunk 2077: 1091500）
-GET {{baseUrl}}/api?url=https://store.steampowered.com/app/1091500/&key={{apiKey}}
-
-<> response/2026-05-12T112102.200.json
-
-### ========================================
-### URL 参数方式 - Trakt
-### ========================================
-
-### GET - 解析 Trakt 电影
-GET {{baseUrl}}/api?url=https://trakt.tv/movies/independence-day-1996&key={{apiKey}}
-
-<> response/2026-05-12T112204.200.json
-
-### GET - 解析 Trakt 电视剧
-GET {{baseUrl}}/api?url=https://trakt.tv/shows/breaking-bad&key={{apiKey}}
-
-<> response/2026-05-12T112233.200.json
-
-### ========================================
-### Params 参数方式 - 豆瓣
-### ========================================
+### --- Params 方式 ---
 
 ### GET - 豆瓣电影
 GET {{baseUrl}}/api?source=douban&sid=35267208&key={{apiKey}}
@@ -123,19 +54,76 @@ Content-Type: application/json
 
 <> response/2026-05-12T112408.200.json
 
+### --- 搜索 ---
+
+### 指定来源搜索 - 豆瓣
+GET {{baseUrl}}/api?source=douban&query=流浪地球&key={{apiKey}}
+
+<> response/2026-05-12T122308.200.json
+
+### POST - 指定来源搜索豆瓣
+POST {{baseUrl}}/api?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "source": "douban",
+  "query": "流浪地球"
+}
+
+<> response/2026-05-12T122438.200.json
+
 ### ========================================
-### Params 参数方式 - IMDb
+### IMDb
 ### ========================================
 
-### GET - IMDb
+### --- URL 方式 ---
+
+### GET - IMDb 电影（魔力麦克: tt1915581）
+GET {{baseUrl}}/api?url=https://www.imdb.com/title/tt1915581/&key={{apiKey}}
+
+<> response/2026-05-12T110005.200.json
+
+### POST - IMDb 电影
+POST {{baseUrl}}/api?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "url": "https://www.imdb.com/title/tt1915581/"
+}
+
+<> response/2026-05-12T110401.200.json
+
+### --- Params 方式 ---
+
+### GET - IMDb 电影
 GET {{baseUrl}}/api?source=imdb&sid=tt1915581&key={{apiKey}}
 
 <> response/2026-05-12T112506.200.json
 
+### --- 搜索 ---
+# 注意: IMDb 搜索可能触发 WAF 保护，建议配置 TMDB_API_KEY 作为回退
+
+### 指定来源搜索 - IMDb
+GET {{baseUrl}}/api?source=imdb&query=Independence Day&key={{apiKey}}
+
 ### ========================================
-### Params 参数方式 - TMDB
+### TMDB (The Movie Database)
 ### 注意: TMDB 必须提供 type 参数 (movie 或 tv)
 ### ========================================
+
+### --- URL 方式 ---
+
+### GET - TMDB 电影（心的居所: 191）
+GET {{baseUrl}}/api?url=https://www.themoviedb.org/movie/191&key={{apiKey}}
+
+<> response/2026-05-12T111438.200.json
+
+### GET - TMDB 电视剧（绝命毒师: 1396）
+GET {{baseUrl}}/api?url=https://www.themoviedb.org/tv/1396&key={{apiKey}}
+
+<> response/2026-05-12T111911.200.json
+
+### --- Params 方式 ---
 
 ### GET - TMDB 电影
 GET {{baseUrl}}/api?source=tmdb&sid=191&type=movie&key={{apiKey}}
@@ -159,28 +147,67 @@ Content-Type: application/json
 
 <> response/2026-05-12T121333.200.json
 
+### --- 搜索 ---
+
+### 指定来源搜索 - TMDB
+GET {{baseUrl}}/api?source=tmdb&query=流浪地球&key={{apiKey}}
+
+<> response/2026-05-12T122339.200.json
+
 ### ========================================
-### Params 参数方式 - Bangumi
+### Bangumi (番组计划)
 ### ========================================
 
-### GET - Bangumi
+### --- URL 方式 ---
+
+### GET - Bangumi 动画
+GET {{baseUrl}}/api?url=https://bgm.tv/subject/333890&key={{apiKey}}
+
+<> response/2026-05-12T111801.200.json
+
+### --- Params 方式 ---
+
+### GET - Bangumi 动画
 GET {{baseUrl}}/api?source=bangumi&sid=333890&key={{apiKey}}
 
 <> response/2026-05-12T121406.200.json
 
 ### ========================================
-### Params 参数方式 - Steam
+### Steam
 ### ========================================
 
-### GET - Steam
+### --- URL 方式 ---
+
+### GET - Steam 游戏（Cyberpunk 2077: 1091500）
+GET {{baseUrl}}/api?url=https://store.steampowered.com/app/1091500/&key={{apiKey}}
+
+<> response/2026-05-12T112102.200.json
+
+### --- Params 方式 ---
+
+### GET - Steam 游戏
 GET {{baseUrl}}/api?source=steam&sid=1091500&key={{apiKey}}
 
 <> response/2026-05-12T121445.200.json
 
 ### ========================================
-### Params 参数方式 - Trakt
+### TraktTV
 ### 注意: Trakt 必须提供 type 参数 (movies 或 shows)
 ### ========================================
+
+### --- URL 方式 ---
+
+### GET - Trakt 电影
+GET {{baseUrl}}/api?url=https://trakt.tv/movies/independence-day-1996&key={{apiKey}}
+
+<> response/2026-05-12T112204.200.json
+
+### GET - Trakt 电视剧
+GET {{baseUrl}}/api?url=https://trakt.tv/shows/breaking-bad&key={{apiKey}}
+
+<> response/2026-05-12T112233.200.json
+
+### --- Params 方式 ---
 
 ### GET - Trakt 电影
 GET {{baseUrl}}/api?source=trakt&sid=independence-day-1996&type=movies&key={{apiKey}}
@@ -205,15 +232,15 @@ Content-Type: application/json
 <> response/2026-05-12T121623.200.json
 
 ### ========================================
-### 搜索功能
+### 搜索功能（智能选择平台）
 ### ========================================
 
-### 自动搜索 - 中文关键词
+### 自动搜索 - 中文关键词（自动使用豆瓣/TMDB）
 GET {{baseUrl}}/api?query=流浪地球&key={{apiKey}}
 
 <> response/2026-05-12T121655.200.json
 
-### 自动搜索 - 英文关键词
+### 自动搜索 - 英文关键词（自动使用 IMDb/TMDB）
 GET {{baseUrl}}/api?query=Magic Mike&key={{apiKey}}
 
 <> response/2026-05-12T130632.200.json
@@ -227,27 +254,3 @@ Content-Type: application/json
 }
 
 <> response/2026-05-12T122227.200.json
-
-### 指定来源搜索 - 豆瓣
-GET {{baseUrl}}/api?source=douban&query=流浪地球&key={{apiKey}}
-
-<> response/2026-05-12T122308.200.json
-
-### 指定来源搜索 - IMDb
-GET {{baseUrl}}/api?source=imdb&query=Independence Day&key={{apiKey}}
-
-### 指定来源搜索 - TMDB
-GET {{baseUrl}}/api?source=tmdb&query=流浪地球&key={{apiKey}}
-
-<> response/2026-05-12T122339.200.json
-
-### POST - 指定来源搜索gou
-POST {{baseUrl}}/api?key={{apiKey}}
-Content-Type: application/json
-
-{
-  "source": "douban",
-  "query": "流浪地球"
-}
-
-<> 2026-05-12T122438.200.json
