@@ -6,7 +6,8 @@ export default {
   input: 'index.js',
   output: {
     file: 'dist/bundle.js',
-    format: 'es'
+    format: 'es',
+    inlineDynamicImports: true
   },
   plugins: [
     nodePolyfills(),
