@@ -32,7 +32,7 @@
 
 ## DEMO 预览
 
-<a href="https://pt-gen.hares.dpdns.org" target="_blank">
+<a href="https://pt-gen.Jerold.dpdns.org" target="_blank">
   <img src="https://img.shields.io/badge/Demo-Click%20Here-blue?style=for-the-badge" alt="Demo">
 </a>
 
@@ -101,7 +101,7 @@ cp wrangler.toml.example wrangler.toml
 
 ```toml
 [vars]
-AUTHOR = "Hares"
+AUTHOR = "Jerold"
 LOG_LEVEL = "debug"          # 开发环境建议使用 debug
 ENABLED_CACHE = "false"      # 开发环境建议禁用缓存
 API_KEY = "your_api_key"     # 可选，保护 API 接口
@@ -244,7 +244,7 @@ directory = "./frontend/dist"
 binding = "ASSETS"
 
 [vars]
-AUTHOR = "Hares"
+AUTHOR = "Jerold"
 LOG_LEVEL = "none"
 ENABLED_CACHE = "true"
 
@@ -343,6 +343,23 @@ Published pt-gen-refactor
 # 注释 wrangler.toml 中的 [assets] 块
 npm run deploy
 ```
+
+**GitHub Actions 手动部署**
+
+项目提供 `.github/workflows/build-worker.yml`，只支持手动触发，不会在 `push` 时自动部署。Actions 会使用 `wrangler.ci.toml` 作为部署配置。
+
+1. 在 GitHub 仓库进入 `Settings` → `Secrets and variables` → `Actions`
+2. 添加以下 Repository secrets：
+
+| Secret | 说明 |
+|--------|------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API Token，需要 Workers Scripts 编辑/发布权限 |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Account ID |
+
+3. 进入 `Actions` → `Deploy Worker` → `Run workflow`
+4. 选择分支后点击 `Run workflow`，Actions 会构建前端并执行 `wrangler deploy`
+
+> Worker 运行时变量（如 `API_KEY`、`TMDB_API_KEY`、`DOUBAN_COOKIE`、`AUTH_SECRET`）建议在 Cloudflare 控制台的「变量和机密」中配置，避免写入仓库。
 
 **使用预构建 bundle（无本地构建环境）**
 
@@ -488,6 +505,60 @@ Body: {"url": "{resource_url}"}
 | IMDb 搜索 | `/api?source=imdb&query=Independence Day&key=your_api_key` | `{"source":"imdb","query":"Independence Day"}` |
 | TMDB 搜索 | `/api?source=tmdb&query=流浪地球&key=your_api_key` | `{"source":"tmdb","query":"流浪地球"}` |
 
+### 媒体 ID 桥接接口
+
+用于在 IMDb ID、豆瓣 ID、片名之间进行桥接查询。
+
+**请求方式**
+
+| 方法 | 路径 |
+|------|------|
+| GET | `/api/media-id-bridge?{query_params}&key=your_api_key` |
+| POST | `/api/media-id-bridge?key=your_api_key`（Body: JSON 格式） |
+
+**参数说明**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `imdbid` | string | 条件 | IMDb 标题 ID，例如 `tt0111161` |
+| `doubanid` | string | 条件 | 豆瓣条目 ID，例如 `1292052` |
+| `name` | string | 条件 | 电影/剧集名称，支持中英文 |
+| `year` | string | 否 | 年份过滤，仅在 `name` 查询时使用，格式 `YYYY` |
+| `key` | string | 条件 | API 密钥（如配置了 API_KEY 则必填） |
+
+> `imdbid`、`doubanid`、`name` 三者至少提供一个；优先级为 `imdbid` > `doubanid` > `name`。
+
+**调用示例**
+
+| 场景 | GET 示例 | POST Body 示例 |
+|------|----------|----------------|
+| IMDb ID 查询 | `/api/media-id-bridge?imdbid=tt0111161&key=your_api_key` | `{"imdbid":"tt0111161"}` |
+| 豆瓣 ID 查询 | `/api/media-id-bridge?doubanid=1292052&key=your_api_key` | `{"doubanid":"1292052"}` |
+| 名称查询 | `/api/media-id-bridge?name=消失的人&key=your_api_key` | `{"name":"消失的人"}` |
+| 名称 + 年份 | `/api/media-id-bridge?name=消失的人&year=2005&key=your_api_key` | `{"name":"消失的人","year":"2005"}` |
+
+**返回格式**
+
+```json
+{
+  "success": true,
+  "error": null,
+  "version": "1.0.9",
+  "generate_at": 0,
+  "copyright": "Powered by @Jerold",
+  "site": "media_id_bridge",
+  "query_type": "imdbid",
+  "data": [
+    {
+      "doubanid": 1292052,
+      "imdbid": "tt0111161",
+      "name": "肖申克的救赎",
+      "year": "1994"
+    }
+  ]
+}
+```
+
 > **注意**：IMDb 搜索可能触发 WAF 保护，建议配置 `TMDB_API_KEY` 作为回退方案。
 
 ### 响应格式
@@ -501,7 +572,7 @@ Body: {"url": "{resource_url}"}
   "format": "生成的 PT 描述文本",
   "version": "1.0.8",
   "generate_at": 1778562206625,
-  "copyright": "Powered by @Hares",
+  "copyright": "Powered by @Jerold",
   "data": [],
   "site": "douban",
   "sid": "35267208"

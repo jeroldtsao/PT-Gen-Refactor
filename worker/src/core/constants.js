@@ -1,5 +1,5 @@
-export const AUTHOR = "Hares";
-export const VERSION = "1.0.9";
+export const AUTHOR = "Jerold";
+export const VERSION = "1.1.0";
 export const NONE_EXIST_ERROR = "The corresponding resource does not exist.";
 export const DEFAULT_TIMEOUT = 15000;
 export const ANTI_BOT_PATTERNS =

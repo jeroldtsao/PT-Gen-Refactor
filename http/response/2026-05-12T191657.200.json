@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "error": null,
+  "format": "",
+  "version": "1.1.0",
+  "generate_at": 1778584617077,
+  "copyright": "Powered by @Jerold",
+  "site": "media_id_bridge",
+  "query_type": "imdbid",
+  "data": [
+    {
+      "doubanid": 1292052,
+      "imdbid": "tt0111161",
+      "name": "The Shawshank Redemption",
+      "year": "1994"
+    }
+  ]
+}

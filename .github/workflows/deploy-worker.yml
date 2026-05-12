@@ -1,0 +1,49 @@
+name: Deploy Worker
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: |
+            frontend/package-lock.json
+            worker/package-lock.json
+
+      - name: Sync version across packages
+        run: node scripts/sync-version.mjs
+
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: frontend
+
+      - name: Build frontend assets
+        run: npm run build
+        working-directory: frontend
+
+      - name: Install worker dependencies
+        run: npm ci
+        working-directory: worker
+
+      - name: Deploy to Cloudflare Workers
+        run: npx wrangler deploy --config wrangler.ci.toml
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

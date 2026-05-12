@@ -1,0 +1,16 @@
+name = "pt-gen-refactor"
+main = "worker/index.js"
+compatibility_date = "2026-05-12"
+
+[assets]
+directory = "./frontend/dist"
+binding = "ASSETS"
+
+[vars]
+AUTHOR = "Jerold"
+LOG_LEVEL = "none"
+ENABLED_CACHE = "true"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "pt-gen-cache"

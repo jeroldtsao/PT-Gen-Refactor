@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "error": null,
+  "format": "",
+  "version": "1.1.0",
+  "generate_at": 1778585166742,
+  "copyright": "Powered by @Jerold",
+  "site": "media_id_bridge",
+  "query_type": "name",
+  "data": [
+    {
+      "doubanid": 1782751,
+      "imdbid": "tt0433817",
+      "name": "消失的人",
+      "year": "2005"
+    }
+  ]
+}

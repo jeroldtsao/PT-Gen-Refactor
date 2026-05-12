@@ -1,6 +1,26 @@
 # 版本更新说明
 
-## v1.0.9 (当前版本)
+## v1.1.0 (当前版本)
+
+### 新增功能
+
+- 新增媒体 ID 桥接接口 `/api/media-id-bridge`，支持通过 IMDb ID、豆瓣 ID、片名和年份查询关联媒体 ID
+- 新增 GitHub Actions 手动部署 Cloudflare Worker 流程，可在 Actions 页面手动触发部署
+- 新增 `wrangler.ci.toml`，用于 GitHub Actions 部署时读取无敏感信息的 Wrangler 配置
+
+### 功能优化
+
+- 保持媒体 ID 桥接接口与现有 PT-Gen API 鉴权、响应格式和缓存机制一致
+- 补充媒体 ID 桥接接口的 HTTP Client 示例
+- 更新 README，增加媒体 ID 桥接接口和 GitHub Actions 手动部署说明
+
+### 技术改进
+
+- 将媒体 ID 桥接逻辑拆分为独立模块 `worker/src/utils/mediaIdBridge.js`
+- 调整 Worker 路由，新增 `/api/media-id-bridge` 独立接口层级
+- 将 GitHub Actions 部署流程改为 `workflow_dispatch` 手动触发
+
+## v1.0.9
 
 ### Bug Fix
 

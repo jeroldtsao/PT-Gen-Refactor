@@ -11,6 +11,7 @@ import {
 } from "./helpers.js";
 import {handleAutoSearch, handleSearchRequest} from "./search.js";
 import {_withCache} from "./cache.js";
+import {queryMediaIdBridge} from "./mediaIdBridge.js";
 import logger from "../logger.js";
 import {ValidationError, AuthError, AntiBotError, NotFoundError, RateLimitError} from "../core/errors.js";
 
@@ -104,10 +105,16 @@ const validateRequest = async (request, corsHeaders, env) => {
     const method = request.method;
     const acceptHeader = request.headers.get("Accept") || "";
     const isBrowserRequest = acceptHeader.includes("text/html");
+    const isPublicApiPath =
+        url.pathname === "/" ||
+        url.pathname === "/api" ||
+        url.pathname === "/api/" ||
+        url.pathname === "/api/media-id-bridge" ||
+        url.pathname === "/api/media-id-bridge/";
     if (
         env?.API_KEY &&
         method === "GET" &&
-        (url.pathname === "/" || url.pathname === "/api") &&
+        isPublicApiPath &&
         isBrowserRequest &&
         !url.searchParams.has("key")
     ) {
@@ -116,7 +123,7 @@ const validateRequest = async (request, corsHeaders, env) => {
 
     if (env?.API_KEY) {
         const apiKey = url.searchParams.get("key");
-        if (url.pathname === "/api" && (!apiKey || apiKey !== env.API_KEY)) {
+        if (isPublicApiPath && (!apiKey || apiKey !== env.API_KEY)) {
             return {
                 valid: false,
                 response: createErrorResponse(new AuthError("Invalid or missing API key. Access denied."))
@@ -395,6 +402,19 @@ export const makeJsonResponse = (body_update, env, status = 200) => {
     return makeJsonRawResponse(body, {status});
 };
 
+const handleMediaIdBridgeRoute = async (request, env, url) => {
+    try {
+        const result = await queryMediaIdBridge(request, env, url);
+        return makeJsonResponse(result.body, env, result.status);
+    } catch (error) {
+        logger.error("Media ID Bridge request failed", {
+            path: url.pathname,
+            error: error.message,
+        });
+        return createErrorResponse(error);
+    }
+};
+
 /**
  * Handles image proxy requests by fetching the image from the specified URL
  * and returning it with appropriate CORS and cache headers.
@@ -516,6 +536,21 @@ export const handleRequest = async (request, env) => {
         }
     }
 
+    if (url.pathname === "/api/cancel") {
+        return await handleCancelRequest(request);
+    }
+
+    if (
+        url.pathname === "/api/media-id-bridge" ||
+        url.pathname === "/api/media-id-bridge/"
+    ) {
+        logger.debug("处理媒体 ID 桥接请求", {
+            path: url.pathname,
+            query: url.search,
+        });
+        return await handleMediaIdBridgeRoute(request, env, url);
+    }
+
     if (url.pathname.startsWith("/api/") && url.pathname !== "/api/cancel") {
         const signatureVerification = await verifySignature(request, env);
         if (!signatureVerification.valid) {
@@ -531,10 +566,6 @@ export const handleRequest = async (request, env) => {
             );
         }
         logger.debug("✅ 签名验证通过");
-    }
-
-    if (url.pathname === "/api/cancel") {
-        return await handleCancelRequest(request);
     }
 
     if (

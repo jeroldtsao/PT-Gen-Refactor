@@ -254,3 +254,61 @@ Content-Type: application/json
 }
 
 <> response/2026-05-12T122227.200.json
+
+### ========================================
+### 媒体 ID 桥接接口
+### 路径: /api/media-id-bridge
+### 注意: 保留 PT-Gen 的 API_KEY 鉴权
+### ========================================
+
+### GET - 通过 IMDb ID 查询
+GET {{baseUrl}}/api/media-id-bridge?imdbid=tt0111161&key={{apiKey}}
+
+<> response/2026-05-12T191657.200.json
+
+### GET - 通过 Douban ID 查询
+GET {{baseUrl}}/api/media-id-bridge?doubanid=1292052&key={{apiKey}}
+
+<> response/2026-05-12T191749.200.json
+
+### GET - 通过名称查询
+GET {{baseUrl}}/api/media-id-bridge?name=消失的人&key={{apiKey}}
+
+<> response/2026-05-12T192527.200.json
+
+### GET - 通过名称 + 年份查询
+GET {{baseUrl}}/api/media-id-bridge?name=消失的人&year=2005&key={{apiKey}}
+
+<> response/2026-05-12T192606.200.json
+
+### POST - 通过 IMDb ID 查询
+POST {{baseUrl}}/api/media-id-bridge?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "imdbid": "tt0111161"
+}
+
+<> response/2026-05-12T192636.200.json
+
+### POST - 通过 Douban ID 查询
+POST {{baseUrl}}/api/media-id-bridge?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "doubanid": "1292052"
+}
+
+<> response/2026-05-12T192654.200.json
+
+### POST - 通过名称查询
+POST {{baseUrl}}/api/media-id-bridge?key={{apiKey}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "消失的人",
+  "year": "2005"
+}
+
+<> response/2026-05-12T192709.200.json

@@ -16,7 +16,7 @@ binding = "ASSETS"
 # - error: 只输出错误
 # - none:  不输出任何日志
 [vars]
-AUTHOR = "Hares"
+AUTHOR = "Jerold"
 LOG_LEVEL = "none"
 ENABLED_CACHE = "true"
 #API_KEY = "your_api_key"
