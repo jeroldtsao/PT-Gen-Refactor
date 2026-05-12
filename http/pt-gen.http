@@ -1,0 +1,442 @@
+# PT-Gen API 测试文件
+# 基于代码和文档整理的完整测试集
+# 部署地址: https://pt-gen.jerold.cc.cd
+
+@baseUrl = https://pt-gen.jerold.cc.cd
+# 如果部署配置了 API_KEY，请填写实际的值
+@apiKey =
+
+### ========================================
+### 根路径测试
+### ========================================
+
+### 获取 API 文档（非浏览器请求）
+GET {{baseUrl}}/
+Accept: application/json
+
+### 获取前端页面（浏览器请求）
+GET {{baseUrl}}/
+Accept: text/html
+
+### ========================================
+### 图片代理接口
+### ========================================
+
+### 代理豆瓣图片
+GET {{baseUrl}}/img?url=https://img9.doubanio.com/view/photo/l/public/p2929427346.webp
+
+### ========================================
+### URL 参数方式 - 豆瓣电影
+### ========================================
+
+### 解析豆瓣电影（使用真实存在的 ID: 35267208 - 流浪地球2）
+# @name douban_movie_url
+GET {{baseUrl}}/api?url=https://movie.douban.com/subject/35267208/
+
+### 解析豆瓣电影 - POST 方式
+# @name douban_movie_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "url": "https://movie.douban.com/subject/35267208/"
+}
+
+### ========================================
+### URL 参数方式 - 豆瓣读书
+### ========================================
+
+### 解析豆瓣读书（使用真实存在的 ID: 26317052 - 三体）
+# @name douban_book_url
+GET {{baseUrl}}/api?url=https://book.douban.com/subject/26317052/
+
+### ========================================
+### URL 参数方式 - IMDb
+### ========================================
+
+### 解析 IMDb 电影（使用真实存在的 ID: tt1915581 - 独立日）
+# @name imdb_url
+GET {{baseUrl}}/api?url=https://www.imdb.com/title/tt1915581/
+
+### 解析 IMDb - POST 方式
+# @name imdb_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "url": "https://www.imdb.com/title/tt1915581/"
+}
+
+### ========================================
+### URL 参数方式 - TMDB
+### ========================================
+
+### 解析 TMDB 电影（使用真实存在的 ID: 191 - 独立日）
+# 注意：TMDB 需要配置 TMDB_API_KEY 环境变量
+# @name tmdb_movie_url
+GET {{baseUrl}}/api?url=https://www.themoviedb.org/movie/191
+
+### 解析 TMDB 电视剧（使用真实存在的 ID: 1396 - 绝命毒师）
+# @name tmdb_tv_url
+GET {{baseUrl}}/api?url=https://www.themoviedb.org/tv/1396
+
+### ========================================
+### URL 参数方式 - Bangumi
+### ========================================
+
+### 解析 Bangumi（使用真实存在的 ID: 333890 - 某作品）
+# @name bangumi_url
+GET {{baseUrl}}/api?url=https://bgm.tv/subject/333890
+
+### 解析 Bangumi - 使用 bangumi.tv 域名
+# @name bangumi_alt_url
+GET {{baseUrl}}/api?url=https://bangumi.tv/subject/333890
+
+### ========================================
+### URL 参数方式 - Steam
+### ========================================
+
+### 解析 Steam 游戏（使用真实存在的 ID: 1091500 - Cyberpunk 2077）
+# @name steam_url
+GET {{baseUrl}}/api?url=https://store.steampowered.com/app/1091500/
+
+### ========================================
+### URL 参数方式 - Trakt
+### ========================================
+
+### 解析 Trakt 电影（使用真实存在的 slug: independence-day-1996）
+# 注意：Trakt 需要配置 TRAKT_API_CLIENT_ID 和 TRAKT_APP_NAME 环境变量
+# @name trakt_movie_url
+GET {{baseUrl}}/api?url=https://trakt.tv/movies/independence-day-1996
+
+### 解析 Trakt 电视剧（使用真实存在的 slug: breaking-bad）
+# @name trakt_show_url
+GET {{baseUrl}}/api?url=https://trakt.tv/shows/breaking-bad
+
+### ========================================
+### Params 参数方式 - 豆瓣
+### ========================================
+
+### 豆瓣电影 Params 方式（sid 为豆瓣 ID）
+# @name douban_params
+GET {{baseUrl}}/api?source=douban&sid=35267208
+
+### 豆瓣电影 Params 方式 - POST
+# @name douban_params_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "douban",
+  "sid": "35267208"
+}
+
+### ========================================
+### Params 参数方式 - IMDb
+### ========================================
+
+### IMDb Params 方式（sid 为 IMDb ID，包含 tt）
+# @name imdb_params
+GET {{baseUrl}}/api?source=imdb&sid=tt1915581
+
+### ========================================
+### Params 参数方式 - TMDB
+### ========================================
+
+### TMDB 电影 Params 方式
+# 注意：TMDB Params 方式必须提供 type 参数（movie 或 tv）
+# @name tmdb_movie_params
+GET {{baseUrl}}/api?source=tmdb&sid=191&type=movie
+
+### TMDB 电视剧 Params 方式
+# @name tmdb_tv_params
+GET {{baseUrl}}/api?source=tmdb&sid=1396&type=tv
+
+### TMDB Params 方式 - POST
+# @name tmdb_params_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "tmdb",
+  "sid": "191",
+  "type": "movie"
+}
+
+### TMDB Params 方式 - 缺少 type 参数（会返回错误）
+# @name tmdb_params_no_type
+GET {{baseUrl}}/api?source=tmdb&sid=191
+
+### ========================================
+### Params 参数方式 - Bangumi
+### ========================================
+
+### Bangumi Params 方式
+# @name bangumi_params
+GET {{baseUrl}}/api?source=bangumi&sid=333890
+
+### ========================================
+### Params 参数方式 - Steam
+### ========================================
+
+### Steam Params 方式
+# @name steam_params
+GET {{baseUrl}}/api?source=steam&sid=1091500
+
+### ========================================
+### Params 参数方式 - Trakt
+### ========================================
+
+### Trakt 电影 Params 方式
+# 注意：Trakt Params 方式必须提供 type 参数（movies 或 shows）
+# @name trakt_movie_params
+GET {{baseUrl}}/api?source=trakt&sid=independence-day-1996&type=movies
+
+### Trakt 电视剧 Params 方式
+# @name trakt_show_params
+GET {{baseUrl}}/api?source=trakt&sid=breaking-bad&type=shows
+
+### Trakt Params 方式 - POST
+# @name trakt_params_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "trakt",
+  "sid": "breaking-bad",
+  "type": "shows"
+}
+
+### ========================================
+### 搜索功能
+### ========================================
+
+### 自动搜索（中文关键词 - 会使用豆瓣搜索，失败回退 TMDB）
+# @name search_auto_chinese
+GET {{baseUrl}}/api?query=流浪地球
+
+### 自动搜索（英文关键词 - 会使用 IMDb 搜索）
+# @name search_auto_english
+GET {{baseUrl}}/api?query=Independence Day
+
+### 自动搜索 - POST 方式
+# @name search_auto_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "query": "流浪地球"
+}
+
+### ========================================
+### 搜索功能 - 指定来源
+### ========================================
+
+### 指定豆瓣搜索
+# @name search_douban
+GET {{baseUrl}}/api?source=douban&query=流浪地球
+
+### 指定豆瓣搜索 - POST 方式
+# @name search_douban_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "douban",
+  "query": "流浪地球"
+}
+
+### 指定 IMDb 搜索
+# @name search_imdb
+GET {{baseUrl}}/api?source=imdb&query=Independence Day
+
+### 指定 IMDb 搜索 - POST 方式
+# @name search_imdb_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "imdb",
+  "query": "Independence Day"
+}
+
+### 指定 TMDB 搜索（需要配置 TMDB_API_KEY）
+# @name search_tmdb
+GET {{baseUrl}}/api?source=tmdb&query=流浪地球
+
+### 指定 TMDB 搜索 - POST 方式
+# @name search_tmdb_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "source": "tmdb",
+  "query": "流浪地球"
+}
+
+### ========================================
+### 带 API Key 的请求（如果配置了 API_KEY）
+### ========================================
+
+### GET 方式带 Key
+# @name with_key_get
+GET {{baseUrl}}/api?url=https://movie.douban.com/subject/35267208/&key={{apiKey}}
+
+### POST 方式带 Key（URL 参数）
+# @name with_key_post_url
+POST {{baseUrl}}/api?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "url": "https://movie.douban.com/subject/35267208/"
+}
+
+### POST 方式带 Key（Body 参数 - 注意：key 只能通过 URL 参数传递）
+# @name with_key_post_body
+POST {{baseUrl}}/api?key={{apiKey}}
+Content-Type: application/json
+
+{
+  "url": "https://movie.douban.com/subject/35267208/"
+}
+
+### ========================================
+### /api/getData 路径（前端使用，需签名验证）
+### ========================================
+
+### 前端调用方式 - 需要签名
+# 注意：此接口需要 HMAC-SHA256 签名验证
+# 需要在请求头中提供 X-Timestamp 和 X-Signature
+# Timestamp 需在 5 分钟内有效
+# Signature = HMAC-SHA256(AUTH_SECRET, timestamp)
+# @name frontend_signed
+POST {{baseUrl}}/api/getData
+Content-Type: application/json
+X-Timestamp: 1699999999999
+X-Signature: <需要计算实际的签名>
+
+{
+  "url": "https://movie.douban.com/subject/35267208/"
+}
+
+### ========================================
+### 取消请求
+### ========================================
+
+### 取消正在进行的请求
+# requestId 可以在请求时通过 URL 参数传递，用于跟踪和取消
+# @name cancel_request
+POST {{baseUrl}}/api/cancel
+Content-Type: application/json
+
+{
+  "requestId": "test-request-123"
+}
+
+### ========================================
+### 带 requestId 的请求（用于取消）
+### ========================================
+
+### 带 requestId 的请求
+# requestId 用于跟踪请求，可通过 /api/cancel 取消
+# @name with_request_id
+GET {{baseUrl}}/api?url=https://movie.douban.com/subject/35267208/&requestId=test-request-123
+
+### 带 requestId 的 POST 请求
+# @name with_request_id_post
+POST {{baseUrl}}/api
+Content-Type: application/json
+
+{
+  "url": "https://movie.douban.com/subject/35267208/",
+  "requestId": "test-request-123"
+}
+
+### ========================================
+### 其他平台测试 - Melon
+### ========================================
+
+### Melon 音乐专辑（韩国音乐平台）
+# 使用真实存在的专辑 ID
+# @name melon_url
+GET {{baseUrl}}/api?url=https://www.melon.com/album/detail.htm?albumId=11111111
+
+### Melon Params 方式
+# @name melon_params
+GET {{baseUrl}}/api?source=melon&sid=11111111
+
+### ========================================
+### 其他平台测试 - 红果短剧
+### ========================================
+
+### 红果短剧
+# @name hongguo_url
+GET {{baseUrl}}/api?url=https://novelquickapp.com/s/series_id=123456
+
+### 红果短剧 Params 方式
+# @name hongguo_params
+GET {{baseUrl}}/api?source=hongguo&sid=123456
+
+### ========================================
+### 其他平台测试 - QQ 音乐
+### ========================================
+
+### QQ 音乐专辑（需要配置 QQ_COOKIE）
+# @name qq_music_url
+GET {{baseUrl}}/api?url=https://y.qq.com/albumDetail/albumId123
+
+### QQ 音乐 Params 方式
+# @name qq_music_params
+GET {{baseUrl}}/api?source=qq_music&sid=albumId123
+
+### ========================================
+### 错误测试 - 无效参数
+### ========================================
+
+### 缺少必要参数
+# @name error_no_params
+GET {{baseUrl}}/api
+
+### 无效的 URL 格式
+# @name error_invalid_url
+GET {{baseUrl}}/api?url=https://invalid-url.com/test
+
+### 无效的 source
+# @name error_invalid_source
+GET {{baseUrl}}/api?source=invalid&sid=123456
+
+### TMDB 缺少 type
+# @name error_tmdb_no_type
+GET {{baseUrl}}/api?source=tmdb&sid=191
+
+### Trakt 缺少 type
+# @name error_trakt_no_type
+GET {{baseUrl}}/api?source=trakt&sid=breaking-bad
+
+### Trakt 无效的 type
+# @name error_trakt_invalid_type
+GET {{baseUrl}}/api?source=trakt&sid=breaking-bad&type=invalid
+
+### ========================================
+### OPTIONS 预检请求
+### ========================================
+
+### OPTIONS 预检请求
+# @name options_preflight
+OPTIONS {{baseUrl}}/api
+
+### ========================================
+### 批量测试脚本说明
+### ========================================
+
+# 使用 IntelliJ IDEA / VS Code REST Client 插件可以运行此文件
+# 运行所有请求：点击文件顶部的 "Run All Requests in File"
+# 运行单个请求：点击请求名称旁边的绿色箭头
+
+# 注意事项：
+# 1. 豆瓣近期有反爬机制，频繁请求可能被封禁，建议使用 Cookie 或控制请求频率
+# 2. TMDB 需要配置 TMDB_API_KEY 环境变量才能使用
+# 3. Trakt 需要配置 TRAKT_API_CLIENT_ID 和 TRAKT_APP_NAME 环境变量
+# 4. QQ 音乐需要配置 QQ_COOKIE 环境变量
+# 5. 如配置了 API_KEY，所有请求都需要携带 key 参数
+# 6. /api/getData 端点需要 HMAC-SHA256 签名验证，仅供前端使用

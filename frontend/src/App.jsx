@@ -706,7 +706,7 @@ function App() {
                         </div>
                         <nav className="flex space-x-4">
                             <a
-                                href="https://github.com/rabbitwit/PT-Gen-Refactor"
+                                href="https://github.com/jeroldtsao/PT-Gen-Refactor"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center space-x-2 rounded-md bg-gray-100 px-3 py-2 text-sm hover:bg-gray-200"
