@@ -8,6 +8,7 @@ const WMDB_DETAIL_URL = "https://api.wmdb.tv/movie/api";
 const AVAILABLE_PARAMS = ["imdbid", "doubanid", "name", "year"];
 const DEFAULT_SEARCH_LIMIT = 10;
 const BRIDGE_SITE = "media_id_bridge";
+const BRIDGE_CACHE_VERSION = "v2";
 
 const BRIDGE_HEADERS = Object.freeze({
     Accept: "application/json",
@@ -127,6 +128,29 @@ const dedupeItems = (items) => {
     });
 };
 
+const withBridgeCache = (resourceId, fetchFunction, env) =>
+    _withCache(
+        `${BRIDGE_CACHE_VERSION}_${resourceId}`,
+        fetchFunction,
+        env,
+        BRIDGE_SITE,
+    );
+
+const pickPreferredBridgeItem = (items, imdbid) => {
+    if (!Array.isArray(items) || items.length === 0) {
+        return null;
+    }
+
+    if (imdbid) {
+        const exact = items.find((item) => item?.imdbid === imdbid);
+        if (exact) {
+            return exact;
+        }
+    }
+
+    return items[0] || null;
+};
+
 const fetchTextWithTimeout = async (url, options = {}, timeout = DEFAULT_TIMEOUT) => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
@@ -240,7 +264,7 @@ const withSearchRetry = async (searchFn) => {
 };
 
 const resolveByDoubanId = async (doubanid, env) =>
-    _withCache(
+    withBridgeCache(
         `douban_${doubanid}`,
         async () => {
             logger.info("Media ID Bridge: resolve by Douban ID", {doubanid});
@@ -288,11 +312,44 @@ const resolveByDoubanId = async (doubanid, env) =>
             throw new NotFoundError("Not Found");
         },
         env,
-        BRIDGE_SITE,
     );
 
+const localizeBridgeItem = async (item, env) => {
+    if (!item?.doubanid || isChineseText(item?.name)) {
+        return item;
+    }
+
+    try {
+        const localized = await resolveByDoubanId(String(item.doubanid), env);
+        const localizedItem = pickPreferredBridgeItem(
+            localized?.data,
+            item.imdbid,
+        );
+
+        if (!localizedItem) {
+            return item;
+        }
+
+        return {
+            ...item,
+            ...localizedItem,
+            doubanid: item.doubanid,
+            imdbid: item.imdbid,
+            name: firstNonEmpty(localizedItem.name, item.name),
+            year: firstNonEmpty(localizedItem.year, item.year),
+        };
+    } catch (error) {
+        logger.warn("Media ID Bridge: failed to localize item by Douban ID", {
+            doubanid: item.doubanid,
+            imdbid: item.imdbid,
+            error: error.message,
+        });
+        return item;
+    }
+};
+
 const resolveByName = async (name, year, env) =>
-    _withCache(
+    withBridgeCache(
         `name_${name}_${year || "any"}`,
         async () => {
             logger.info("Media ID Bridge: resolve by name", {name, year});
@@ -310,11 +367,10 @@ const resolveByName = async (name, year, env) =>
             };
         },
         env,
-        BRIDGE_SITE,
     );
 
 const resolveByImdbId = async (imdbid, env) =>
-    _withCache(
+    withBridgeCache(
         `imdb_${imdbid}`,
         async () => {
             logger.info("Media ID Bridge: resolve by IMDb ID", {imdbid});
@@ -332,11 +388,12 @@ const resolveByImdbId = async (imdbid, env) =>
                 const results = await withSearchRetry(() => searchWmdbByName(candidate, year));
                 const exact = results.find((item) => item.imdbid === imdbid);
                 if (exact) {
+                    const localized = await localizeBridgeItem(exact, env);
                     return {
                         success: true,
                         site: BRIDGE_SITE,
                         query_type: "imdbid",
-                        data: [exact],
+                        data: [localized],
                     };
                 }
             }
@@ -344,7 +401,6 @@ const resolveByImdbId = async (imdbid, env) =>
             throw new NotFoundError("Not Found");
         },
         env,
-        BRIDGE_SITE,
     );
 
 const extractRequestBody = async (request) => {

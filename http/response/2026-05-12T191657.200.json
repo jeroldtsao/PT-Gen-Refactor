@@ -3,7 +3,7 @@
   "error": null,
   "format": "",
   "version": "1.1.0",
-  "generate_at": 1778584617077,
+  "generate_at": 1778586880588,
   "copyright": "Powered by @Jerold",
   "site": "media_id_bridge",
   "query_type": "imdbid",
@@ -11,7 +11,7 @@
     {
       "doubanid": 1292052,
       "imdbid": "tt0111161",
-      "name": "The Shawshank Redemption",
+      "name": "肖申克的救赎",
       "year": "1994"
     }
   ]
