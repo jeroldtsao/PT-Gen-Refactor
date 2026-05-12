@@ -38,6 +38,16 @@ jobs:
         run: npm run build
         working-directory: frontend
 
+      - name: Generate worker package-lock.json if not exists
+        run: |
+          cd worker
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json not found, generating one..."
+            npm install --package-lock-only
+          else
+            echo "package-lock.json found"
+          fi
+
       - name: Install worker dependencies
         run: npm ci
         working-directory: worker
