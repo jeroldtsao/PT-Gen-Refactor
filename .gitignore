@@ -20,6 +20,7 @@ frontend/dist/
 .env.test.local
 .env.production.local
 .dev.vars
+http/http-client.env.json
 
 # Wrangler local state
 .wrangler/

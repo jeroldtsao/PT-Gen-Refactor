@@ -88,33 +88,76 @@ npm install
 cd ..
 ```
 
-## 开发环境
+## 本地开发调试
 
-### 启动开发服务器
+### 1. 配置环境
 
-项目使用 monorepo 结构，包含两个独立的开发服务器：
+复制 `wrangler.toml.example` 为 `wrangler.toml` 并配置必要的环境变量：
 
-1. **启动 Cloudflare Worker (后端)**:
-   ```bash
-   npm run dev
-   ```
-   默认运行在 `http://localhost:8787`
+```bash
+cp wrangler.toml.example wrangler.toml
+```
 
-2. **启动 React 前端**:
-   ```bash
-   npm run dev:frontend
-   ```
-   默认运行在 `http://localhost:5173`
+编辑 `wrangler.toml`，配置以下参数：
 
-### 项目脚本
+```toml
+[vars]
+AUTHOR = "Hares"
+LOG_LEVEL = "debug"          # 开发环境建议使用 debug
+ENABLED_CACHE = "false"      # 开发环境建议禁用缓存
+API_KEY = "your_api_key"     # 可选，保护 API 接口
+TMDB_API_KEY = "your_tmdb_api_key"  # 搜索功能必需
+```
 
-| 命令                     | 说明                     |
-|------------------------|------------------------|
-| `npm run dev`          | 启动 Worker 开发服务器        |
-| `npm run dev:frontend` | 启动前端开发服务器              |
-| `npm run deploy`       | 部署 Worker 到 Cloudflare |
+> **注意**: `wrangler.toml` 已加入 `.gitignore`，敏感信息不会被提交到 Git。
 
-> **注意**: 前端开发时会自动代理 API 请求到后端服务器（见 `frontend/.env` 配置）
+### 2. 启动服务
+
+项目使用 monorepo 结构，需要分别启动前后端服务：
+
+**启动后端 API (Cloudflare Worker)**:
+
+```bash
+cd worker
+npm install          # 首次运行需要安装依赖
+npm run dev          # 启动开发服务器
+```
+
+后端默认运行在 `http://localhost:8787`
+
+**启动前端 (React + Vite)**:
+
+```bash
+cd frontend
+npm install          # 首次运行需要安装依赖
+npm run dev          # 启动开发服务器
+```
+
+前端默认运行在 `http://localhost:5173`
+
+### 3. 测试 API
+
+后端启动后，可以直接测试 API 接口：
+
+```bash
+# 测试搜索功能
+curl "http://localhost:8787/api?query=Magic%20Mike&key=your_api_key"
+
+# 测试豆瓣解析
+curl "http://localhost:8787/api?url=https://movie.douban.com/subject/35267208/&key=your_api_key"
+```
+
+### 开发脚本汇总
+
+| 命令                   | 目录      | 说明                     |
+|----------------------|---------|------------------------|
+| `npm run dev`        | worker  | 启动 Worker 开发服务器        |
+| `npm run dev`        | frontend| 启动前端开发服务器              |
+| `npm run build`      | frontend| 构建前端生产版本               |
+| `npm run deploy`     | worker  | 部署 Worker 到 Cloudflare |
+| `npm run test:bangumi` | worker  | 运行 Bangumi 测试          |
+
+> **提示**: 前端开发时会自动代理 API 请求到后端服务器（见 `frontend/.env` 配置）
 
 ## 部署
 

@@ -1,0 +1,83 @@
+{
+  "success": true,
+  "error": null,
+  "format": "",
+  "version": "1.0.8",
+  "generate_at": 1778562392050,
+  "copyright": "Powered by @Hares",
+  "data": [
+    {
+      "year": "2012",
+      "subtype": "movie",
+      "title": "魔力麦克 / Magic Mike",
+      "subtitle": "十九岁的亚当（亚历克斯·帕蒂弗 Alex Pettyfer 饰）在工地上认识了麦克（查宁·塔图姆 Channing Tatum 饰），后来一次偶遇得知原来麦克是个脱衣舞男，而且还是脱衣舞场的台柱“魔力...",
+      "link": "https://www.themoviedb.org/movie/77930",
+      "rating": "6.2",
+      "id": 77930
+    },
+    {
+      "year": "2002",
+      "subtype": "movie",
+      "title": "小鬼魔鞋 / Like Mike",
+      "subtitle": "对于14岁的男孩凯文（宝娃 Bow Wow 饰）来说，能够成为入驻NBA的超级篮球巨星一直以来都是他的梦想，为了实现这个梦想，他每天都做着不懈的努力。遗憾的是，梦想和现实之间的距离的遥远的，站在篮球场...",
+      "link": "https://www.themoviedb.org/movie/21972",
+      "rating": "6.117",
+      "id": 21972
+    },
+    {
+      "year": "2015",
+      "subtype": "movie",
+      "title": "魔力麦克2 / Magic Mike XXL",
+      "subtitle": "麦克（查宁·塔图姆 Channing Tatum 饰）在脱衣舞男生涯的颠峰之时，急流勇退，远离了舞男的生活。后来，其他的舞男同伴也准备洗手不干。不过在收山之前，他们想要在美特尔海滩，展开一场盛大的告别...",
+      "link": "https://www.themoviedb.org/movie/264999",
+      "rating": "6.145",
+      "id": 264999
+    },
+    {
+      "year": "2023",
+      "subtype": "movie",
+      "title": "魔力麦克3：最后之舞 / Magic Mike's Last Dance",
+      "subtitle": "影片根据查宁·塔图姆的真实人生经历改编而成，讲述“魔力麦克”训练另一名年轻舞者进入这一行的故事。",
+      "link": "https://www.themoviedb.org/movie/906221",
+      "rating": "6.412",
+      "id": 906221
+    },
+    {
+      "year": "",
+      "subtype": "tv",
+      "title": "Finding Magic Mike",
+      "subtitle": "",
+      "link": "https://www.themoviedb.org/tv/139087",
+      "rating": "6.1",
+      "id": 139087
+    },
+    {
+      "year": "2006",
+      "subtype": "movie",
+      "title": "小鬼魔鞋2 / Like Mike 2: Streetball",
+      "subtitle": "一个孩子无意拾到乔丹的一双鞋后横扫球场的故事。",
+      "link": "https://www.themoviedb.org/movie/26655",
+      "rating": "5.509",
+      "id": 26655
+    },
+    {
+      "year": "2023",
+      "subtype": "movie",
+      "title": "My Morning with Magic Mike",
+      "subtitle": "",
+      "link": "https://www.themoviedb.org/movie/1166515",
+      "rating": "5",
+      "id": 1166515
+    },
+    {
+      "year": "2015",
+      "subtype": "movie",
+      "title": "Mike the Knight: Knightly Magic",
+      "subtitle": "",
+      "link": "https://www.themoviedb.org/movie/375646",
+      "rating": "0",
+      "id": 375646
+    }
+  ],
+  "site": "search-tmdb"
+}

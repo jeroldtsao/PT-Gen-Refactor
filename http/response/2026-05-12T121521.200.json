@@ -1,0 +1,1364 @@
+{
+  "success": true,
+  "error": null,
+  "format": "[img]https://media.trakt.tv/images/movies/000/000/480/posters/medium/0268afa079.jpg.webp[/img]\n\n❁ Title:　Independence Day\n❁ Type:　movie\n❁ Year:　1996\n❁ Country:　us\n❁ Certification:　PG-13\n❁ Runtime:　145 minutes\n❁ Released:　1996-06-25\n❁ Rating:　7.45 / 10 from 23757 users\n❁ Genre:　action / adventure / science-fiction\n❁ IMDb Link:　https://www.imdb.com/title/tt0116629\n❁ Trakt Link:　https://trakt.tv/movies/independence-day-1996\n❁ TMDB Link:　https://www.themoviedb.org/movie/602\n❁ Director:　Dean Devlin / Kim H. Winther / Susan Bierbaum / Glen Trotiner / Michael Viglietta / Kevin LaRosa / Roland Emmerich / Annie Welles / Marvel Wakefield / Sergio Mimica-Gezzan\n❁ Writers:　Dean Devlin / Roland Emmerich\n❁ Actors:　[Capt. Steven Hiller] Will Smith / [President Thomas J. Whitmore] Bill Pullman / [David Levinson] Jeff Goldblum / [Marilyn Whitmore] Mary McDonnell / [Julius Levinson] Judd Hirsch / [General William Grey] Robert Loggia / [Russell Casse] Randy Quaid / [Constance Spano] Margaret Colin / [Albert Nimzicki] James Rebhorn / [Marty Gilbert] Harvey Fierstein\n\n❁ Description\n  Strange phenomena surface around the globe. The skies ignite. Terror races through the world's major cities. As these extraordinary events unfold, it becomes increasingly clear that a force of incredible magnitude has arrived. Its mission: total annihilation over the Fourth of July weekend. The last hope to stop the destruction is an unlikely group of people united by fate and unimaginable circumstances.\n",
+  "version": "1.0.8",
+  "generate_at": 1778559321584,
+  "copyright": "Powered by @Hares",
+  "site": "trakt",
+  "sid": 480,
+  "type": "movie",
+  "slug": "independence-day-1996",
+  "title": "Independence Day",
+  "year": 1996,
+  "overview": "Strange phenomena surface around the globe. The skies ignite. Terror races through the world's major cities. As these extraordinary events unfold, it becomes increasingly clear that a force of incredible magnitude has arrived. Its mission: total annihilation over the Fourth of July weekend. The last hope to stop the destruction is an unlikely group of people united by fate and unimaginable circumstances.",
+  "poster": "https://media.trakt.tv/images/movies/000/000/480/posters/medium/0268afa079.jpg.webp",
+  "rating": 74.48,
+  "votes": 23757,
+  "rating_format": "7.45 / 10 from 23757 users",
+  "runtime": 145,
+  "released": "1996-06-25",
+  "country": "us",
+  "genres": [
+    "action",
+    "adventure",
+    "science-fiction"
+  ],
+  "languages": [
+    "en"
+  ],
+  "certification": "PG-13",
+  "imdb_link": "https://www.imdb.com/title/tt0116629",
+  "trakt_link": "https://trakt.tv/movies/independence-day-1996",
+  "tmdb_link": "https://www.themoviedb.org/movie/602",
+  "tvdb_link": "",
+  "people": {
+    "cast": [
+      {
+        "name": "Will Smith",
+        "image": "https://media.trakt.tv/images/people/000/008/166/headshots/medium/5322a30d20.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/8166",
+          "slug": "https://trakt.tv/people/will-smith",
+          "imdb": "https://www.imdb.com/name/nm0000226",
+          "tmdb": "https://www.themoviedb.org/person/2888"
+        },
+        "character": "Capt. Steven Hiller"
+      },
+      {
+        "name": "Bill Pullman",
+        "image": "https://media.trakt.tv/images/people/000/413/613/headshots/medium/829623866c.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413613",
+          "slug": "https://trakt.tv/people/bill-pullman",
+          "imdb": "https://www.imdb.com/name/nm0000597",
+          "tmdb": "https://www.themoviedb.org/person/8984"
+        },
+        "character": "President Thomas J. Whitmore"
+      },
+      {
+        "name": "Jeff Goldblum",
+        "image": "https://media.trakt.tv/images/people/000/412/486/headshots/medium/2914dfda89.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/412486",
+          "slug": "https://trakt.tv/people/jeff-goldblum",
+          "imdb": "https://www.imdb.com/name/nm0000156",
+          "tmdb": "https://www.themoviedb.org/person/4785"
+        },
+        "character": "David Levinson"
+      },
+      {
+        "name": "Mary McDonnell",
+        "image": "https://media.trakt.tv/images/people/000/411/517/headshots/medium/812c13a062.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411517",
+          "slug": "https://trakt.tv/people/mary-mcdonnell",
+          "imdb": "https://www.imdb.com/name/nm0001521",
+          "tmdb": "https://www.themoviedb.org/person/1581"
+        },
+        "character": "Marilyn Whitmore"
+      },
+      {
+        "name": "Judd Hirsch",
+        "image": "https://media.trakt.tv/images/people/000/297/340/headshots/medium/d5bdd0357f.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/297340",
+          "slug": "https://trakt.tv/people/judd-hirsch",
+          "imdb": "https://www.imdb.com/name/nm0002139",
+          "tmdb": "https://www.themoviedb.org/person/6167"
+        },
+        "character": "Julius Levinson"
+      },
+      {
+        "name": "Robert Loggia",
+        "image": "https://media.trakt.tv/images/people/000/017/576/headshots/medium/08eb610f9a.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/17576",
+          "slug": "https://trakt.tv/people/robert-loggia",
+          "imdb": "https://www.imdb.com/name/nm0005162",
+          "tmdb": "https://www.themoviedb.org/person/1162"
+        },
+        "character": "General William Grey"
+      },
+      {
+        "name": "Randy Quaid",
+        "image": "https://media.trakt.tv/images/people/000/411/515/headshots/medium/c3770040bd.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411515",
+          "slug": "https://trakt.tv/people/randy-quaid",
+          "imdb": "https://www.imdb.com/name/nm0001642",
+          "tmdb": "https://www.themoviedb.org/person/1811"
+        },
+        "character": "Russell Casse"
+      },
+      {
+        "name": "Margaret Colin",
+        "image": "https://media.trakt.tv/images/people/000/413/614/headshots/medium/d72e955ab5.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413614",
+          "slug": "https://trakt.tv/people/margaret-colin",
+          "imdb": "https://www.imdb.com/name/nm0171513",
+          "tmdb": "https://www.themoviedb.org/person/8985"
+        },
+        "character": "Constance Spano"
+      },
+      {
+        "name": "James Rebhorn",
+        "image": "https://media.trakt.tv/images/people/000/012/612/headshots/medium/2c393833e4.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/12612",
+          "slug": "https://trakt.tv/people/james-rebhorn",
+          "imdb": "https://www.imdb.com/name/nm0714310",
+          "tmdb": "https://www.themoviedb.org/person/8986"
+        },
+        "character": "Albert Nimzicki"
+      },
+      {
+        "name": "Harvey Fierstein",
+        "image": "https://media.trakt.tv/images/people/000/413/617/headshots/medium/31cff68ff9.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413617",
+          "slug": "https://trakt.tv/people/harvey-fierstein",
+          "imdb": "https://www.imdb.com/name/nm0001213",
+          "tmdb": "https://www.themoviedb.org/person/7420"
+        },
+        "character": "Marty Gilbert"
+      },
+      {
+        "name": "Adam Baldwin",
+        "image": "https://media.trakt.tv/images/people/000/411/664/headshots/medium/cf9d5c4ae2.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411664",
+          "slug": "https://trakt.tv/people/adam-baldwin",
+          "imdb": "https://www.imdb.com/name/nm0000284",
+          "tmdb": "https://www.themoviedb.org/person/2059"
+        },
+        "character": "Major Mitchell"
+      },
+      {
+        "name": "Brent Spiner",
+        "image": "https://media.trakt.tv/images/people/000/411/816/headshots/medium/848eaee68f.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411816",
+          "slug": "https://trakt.tv/people/brent-spiner",
+          "imdb": "https://www.imdb.com/name/nm0000653",
+          "tmdb": "https://www.themoviedb.org/person/1213786"
+        },
+        "character": "Dr. Brackish Okun"
+      },
+      {
+        "name": "James Duval",
+        "image": "https://media.trakt.tv/images/people/000/017/104/headshots/medium/fc2a9009c2.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/17104",
+          "slug": "https://trakt.tv/people/james-duval",
+          "imdb": "https://www.imdb.com/name/nm0001166",
+          "tmdb": "https://www.themoviedb.org/person/1582"
+        },
+        "character": "Miguel"
+      },
+      {
+        "name": "Vivica A. Fox",
+        "image": "https://media.trakt.tv/images/people/000/000/476/headshots/medium/e068b4a3f9.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/476",
+          "slug": "https://trakt.tv/people/vivica-a-fox",
+          "imdb": "https://www.imdb.com/name/nm0000407",
+          "tmdb": "https://www.themoviedb.org/person/2535"
+        },
+        "character": "Jasmine Dubrow"
+      },
+      {
+        "name": "Lisa Jakub",
+        "image": "https://media.trakt.tv/images/people/000/295/674/headshots/medium/9ffe2edba1.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/295674",
+          "slug": "https://trakt.tv/people/lisa-jakub",
+          "imdb": "https://www.imdb.com/name/nm0004356",
+          "tmdb": "https://www.themoviedb.org/person/8987"
+        },
+        "character": "Alicia"
+      },
+      {
+        "name": "Ross Bagley",
+        "image": "https://media.trakt.tv/images/people/000/426/141/headshots/medium/70f35dc5eb.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/426141",
+          "slug": "https://trakt.tv/people/ross-bagley",
+          "imdb": "https://www.imdb.com/name/nm0046723",
+          "tmdb": "https://www.themoviedb.org/person/67382"
+        },
+        "character": "Dylan"
+      },
+      {
+        "name": "Mae Whitman",
+        "image": "https://media.trakt.tv/images/people/000/413/629/headshots/medium/7cd9102f99.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413629",
+          "slug": "https://trakt.tv/people/mae-whitman",
+          "imdb": "https://www.imdb.com/name/nm0926165",
+          "tmdb": "https://www.themoviedb.org/person/52404"
+        },
+        "character": "Patricia Whitmore"
+      },
+      {
+        "name": "Bill Smitrovich",
+        "image": "https://media.trakt.tv/images/people/000/016/131/headshots/medium/8b8d8c994d.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/16131",
+          "slug": "https://trakt.tv/people/bill-smitrovich",
+          "imdb": "https://www.imdb.com/name/nm0810488",
+          "tmdb": "https://www.themoviedb.org/person/17200"
+        },
+        "character": "Captain Watson"
+      },
+      {
+        "name": "Kiersten Warren",
+        "image": "https://media.trakt.tv/images/people/000/413/632/headshots/medium/973760fe85.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413632",
+          "slug": "https://trakt.tv/people/kiersten-warren",
+          "imdb": "https://www.imdb.com/name/nm0912916",
+          "tmdb": "https://www.themoviedb.org/person/23504"
+        },
+        "character": "Tiffany"
+      },
+      {
+        "name": "Harry Connick Jr.",
+        "image": "https://media.trakt.tv/images/people/000/015/288/headshots/medium/c28fc248b4.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/15288",
+          "slug": "https://trakt.tv/people/harry-connick-jr",
+          "imdb": "https://www.imdb.com/name/nm0001065",
+          "tmdb": "https://www.themoviedb.org/person/18688"
+        },
+        "character": "Capt. Jimmy Wilder"
+      },
+      {
+        "name": "Giuseppe Andrews",
+        "image": "https://media.trakt.tv/images/people/000/298/144/headshots/medium/e2ed877a8d.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/298144",
+          "slug": "https://trakt.tv/people/giuseppe-andrews",
+          "imdb": "https://www.imdb.com/name/nm0004709",
+          "tmdb": "https://www.themoviedb.org/person/4133"
+        },
+        "character": "Troy"
+      },
+      {
+        "name": "John Storey",
+        "image": "https://media.trakt.tv/images/people/000/051/211/headshots/medium/f72641035d.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/51211",
+          "slug": "https://trakt.tv/people/john-storey",
+          "imdb": "https://www.imdb.com/name/nm0832472",
+          "tmdb": "https://www.themoviedb.org/person/1172430"
+        },
+        "character": "Dr. Isaacs"
+      },
+      {
+        "name": "Frank Novak",
+        "image": "https://media.trakt.tv/images/people/000/413/641/headshots/medium/2411b168de.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413641",
+          "slug": "https://trakt.tv/people/frank-novak",
+          "imdb": "https://www.imdb.com/name/nm0636839",
+          "tmdb": "https://www.themoviedb.org/person/46930"
+        },
+        "character": "Teddy"
+      },
+      {
+        "name": "Devon Gummersall",
+        "image": "https://media.trakt.tv/images/people/000/413/645/headshots/medium/d5e47e8e28.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413645",
+          "slug": "https://trakt.tv/people/devon-gummersall",
+          "imdb": "https://www.imdb.com/name/nm0347957",
+          "tmdb": "https://www.themoviedb.org/person/54455"
+        },
+        "character": "Philip"
+      },
+      {
+        "name": "Leland Orser",
+        "image": "https://media.trakt.tv/images/people/000/411/750/headshots/medium/d45ff58144.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411750",
+          "slug": "https://trakt.tv/people/leland-orser",
+          "imdb": "https://www.imdb.com/name/nm0650702",
+          "tmdb": "https://www.themoviedb.org/person/2221"
+        },
+        "character": "Techy / Med Asst #1"
+      },
+      {
+        "name": "Mirron E. Willis",
+        "image": "https://media.trakt.tv/images/people/000/413/648/headshots/medium/be5c1724c9.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413648",
+          "slug": "https://trakt.tv/people/mirron-e-willis",
+          "imdb": "https://www.imdb.com/name/nm0932415",
+          "tmdb": "https://www.themoviedb.org/person/1173560"
+        },
+        "character": "Aide"
+      },
+      {
+        "name": "Ross Lacy",
+        "image": "https://media.trakt.tv/images/people/000/413/650/headshots/medium/88608de5d4.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413650",
+          "slug": "https://trakt.tv/people/ross-lacy",
+          "imdb": "https://www.imdb.com/name/nm0480398",
+          "tmdb": "https://www.themoviedb.org/person/199697"
+        },
+        "character": "Aide"
+      },
+      {
+        "name": "David Pressman",
+        "image": "https://media.trakt.tv/images/people/000/413/653/headshots/medium/b70f9e98ee.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413653",
+          "slug": "https://trakt.tv/people/david-pressman",
+          "imdb": "https://www.imdb.com/name/nm0696295",
+          "tmdb": "https://www.themoviedb.org/person/111514"
+        },
+        "character": "Whitmore's Aide"
+      },
+      {
+        "name": "Vivian Palermo",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/793162",
+          "slug": "https://trakt.tv/people/vivian-palermo",
+          "imdb": "https://www.imdb.com/name/nm0657575",
+          "tmdb": "https://www.themoviedb.org/person/1747249"
+        },
+        "character": "Tech / Med Asst"
+      },
+      {
+        "name": "Raphael Sbarge",
+        "image": "https://media.trakt.tv/images/people/000/413/657/headshots/medium/c6fcbdbeea.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413657",
+          "slug": "https://trakt.tv/people/raphael-sbarge",
+          "imdb": "https://www.imdb.com/name/nm0768620",
+          "tmdb": "https://www.themoviedb.org/person/97943"
+        },
+        "character": "Commander / Tech"
+      },
+      {
+        "name": "Bobby Hosea",
+        "image": "https://media.trakt.tv/images/people/000/413/661/headshots/medium/b8eb00c775.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413661",
+          "slug": "https://trakt.tv/people/bobby-hosea",
+          "imdb": "https://www.imdb.com/name/nm0395914",
+          "tmdb": "https://www.themoviedb.org/person/29775"
+        },
+        "character": "Commanding Officer"
+      },
+      {
+        "name": "Dan Lauria",
+        "image": "https://media.trakt.tv/images/people/000/413/662/headshots/medium/7ea144632e.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413662",
+          "slug": "https://trakt.tv/people/dan-lauria",
+          "imdb": "https://www.imdb.com/name/nm0491357",
+          "tmdb": "https://www.themoviedb.org/person/29774"
+        },
+        "character": "Commanding Officer"
+      },
+      {
+        "name": "Steve Giannelli",
+        "image": "https://media.trakt.tv/images/people/000/413/666/headshots/medium/53b49ad5d7.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413666",
+          "slug": "https://trakt.tv/people/steve-giannelli",
+          "imdb": "https://www.imdb.com/name/nm0316241",
+          "tmdb": "https://www.themoviedb.org/person/1116827"
+        },
+        "character": "Radar Tech"
+      },
+      {
+        "name": "Eric Paskel",
+        "image": "https://media.trakt.tv/images/people/000/006/832/headshots/medium/624e4ca56c.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/6832",
+          "slug": "https://trakt.tv/people/eric-paskel",
+          "imdb": "https://www.imdb.com/name/nm0664618",
+          "tmdb": "https://www.themoviedb.org/person/179969"
+        },
+        "character": "Radar Tech"
+      },
+      {
+        "name": "Carlos Lacámara",
+        "image": "https://media.trakt.tv/images/people/000/413/669/headshots/medium/5c05abe51b.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413669",
+          "slug": "https://trakt.tv/people/carlos-lacamara",
+          "imdb": "https://www.imdb.com/name/nm0479801",
+          "tmdb": "https://www.themoviedb.org/person/1212247"
+        },
+        "character": "Radar Operator"
+      },
+      {
+        "name": "John Bennett Perry",
+        "image": "https://media.trakt.tv/images/people/000/413/672/headshots/medium/c18b1978b3.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413672",
+          "slug": "https://trakt.tv/people/john-bennett-perry",
+          "imdb": "https://www.imdb.com/name/nm0675134",
+          "tmdb": "https://www.themoviedb.org/person/20361"
+        },
+        "character": "Secret Serviceman"
+      },
+      {
+        "name": "Troy Willis",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/6840",
+          "slug": "https://trakt.tv/people/troy-willis",
+          "imdb": "https://www.imdb.com/name/nm0932485",
+          "tmdb": "https://www.themoviedb.org/person/1272408"
+        },
+        "character": "Secret Serviceman"
+      },
+      {
+        "name": "Tim Kelleher",
+        "image": "https://media.trakt.tv/images/people/000/009/289/headshots/medium/ebf768998c.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/9289",
+          "slug": "https://trakt.tv/people/tim-kelleher",
+          "imdb": "https://www.imdb.com/name/nm0445551",
+          "tmdb": "https://www.themoviedb.org/person/72864"
+        },
+        "character": "Technician"
+      },
+      {
+        "name": "Wayne Wilderson",
+        "image": "https://media.trakt.tv/images/people/000/413/678/headshots/medium/513a5ef203.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413678",
+          "slug": "https://trakt.tv/people/wayne-wilderson",
+          "imdb": "https://www.imdb.com/name/nm0928657",
+          "tmdb": "https://www.themoviedb.org/person/1216179"
+        },
+        "character": "Area 51 Technician"
+      },
+      {
+        "name": "Jay Acovone",
+        "image": "https://media.trakt.tv/images/people/000/413/680/headshots/medium/f4d6ec4354.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413680",
+          "slug": "https://trakt.tv/people/jay-acovone",
+          "imdb": "https://www.imdb.com/name/nm0010264",
+          "tmdb": "https://www.themoviedb.org/person/42547"
+        },
+        "character": "Area 51 Guard"
+      },
+      {
+        "name": "James Wong",
+        "image": "https://media.trakt.tv/images/people/000/952/701/headshots/medium/fdf1e6d790.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/952701",
+          "slug": "https://trakt.tv/people/james-wong-18dbda3b-b124-4803-a5cd-70d675c6ef34",
+          "imdb": "https://www.imdb.com/name/nm0939127",
+          "tmdb": "https://www.themoviedb.org/person/1526660"
+        },
+        "character": "SETI Tech One"
+      },
+      {
+        "name": "Thom Barry",
+        "image": "https://media.trakt.tv/images/people/000/413/497/headshots/medium/a3be287ee3.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413497",
+          "slug": "https://trakt.tv/people/thom-barry",
+          "imdb": "https://www.imdb.com/name/nm0058175",
+          "tmdb": "https://www.themoviedb.org/person/8175"
+        },
+        "character": "SETI Tech Two"
+      },
+      {
+        "name": "Jana Marie Hupp",
+        "image": "https://media.trakt.tv/images/people/000/413/687/headshots/medium/abdbe1afd0.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413687",
+          "slug": "https://trakt.tv/people/jana-marie-hupp",
+          "imdb": "https://www.imdb.com/name/nm0403272",
+          "tmdb": "https://www.themoviedb.org/person/1213344"
+        },
+        "character": "SETI Tech Three"
+      },
+      {
+        "name": "Robert Pine",
+        "image": "https://media.trakt.tv/images/people/000/413/690/headshots/medium/31fdbec51b.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413690",
+          "slug": "https://trakt.tv/people/robert-pine",
+          "imdb": "https://www.imdb.com/name/nm0683986",
+          "tmdb": "https://www.themoviedb.org/person/74573"
+        },
+        "character": "Chief of Staff"
+      },
+      {
+        "name": "Michael Winther",
+        "image": "https://media.trakt.tv/images/people/000/422/058/headshots/medium/8721ab0ce0.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/422058",
+          "slug": "https://trakt.tv/people/michael-winther",
+          "imdb": "https://www.imdb.com/name/nm0936041",
+          "tmdb": "https://www.themoviedb.org/person/1184028"
+        },
+        "character": "Co-Worker #3"
+      },
+      {
+        "name": "Paul LeClair",
+        "image": "https://media.trakt.tv/images/people/000/336/736/headshots/medium/7dedaf94da.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/336736",
+          "slug": "https://trakt.tv/people/paul-leclair",
+          "imdb": "https://www.imdb.com/name/nm0496158",
+          "tmdb": "https://www.themoviedb.org/person/1148100"
+        },
+        "character": "Co-Worker #5"
+      },
+      {
+        "name": "David Channell",
+        "image": "https://media.trakt.tv/images/people/000/413/692/headshots/medium/fc9e908ec4.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413692",
+          "slug": "https://trakt.tv/people/david-channell",
+          "imdb": "https://www.imdb.com/name/nm0151559",
+          "tmdb": "https://www.themoviedb.org/person/186657"
+        },
+        "character": "Secret Service Agent"
+      },
+      {
+        "name": "John Capodice",
+        "image": "https://media.trakt.tv/images/people/000/413/693/headshots/medium/172629e5f5.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413693",
+          "slug": "https://trakt.tv/people/john-capodice",
+          "imdb": "https://www.imdb.com/name/nm0135306",
+          "tmdb": "https://www.themoviedb.org/person/31007"
+        },
+        "character": "Mario"
+      },
+      {
+        "name": "Greg Collins",
+        "image": "https://media.trakt.tv/images/people/000/413/695/headshots/medium/eac56e60ae.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413695",
+          "slug": "https://trakt.tv/people/greg-collins",
+          "imdb": "https://www.imdb.com/name/nm0172333",
+          "tmdb": "https://www.themoviedb.org/person/58950"
+        },
+        "character": "Military Aide"
+      },
+      {
+        "name": "Derek Webster",
+        "image": "https://media.trakt.tv/images/people/000/413/698/headshots/medium/3aec9a0e64.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413698",
+          "slug": "https://trakt.tv/people/derek-webster",
+          "imdb": "https://www.imdb.com/name/nm0916871",
+          "tmdb": "https://www.themoviedb.org/person/157029"
+        },
+        "character": "Sky Crane Pilot"
+      },
+      {
+        "name": "Mark Fite",
+        "image": "https://media.trakt.tv/images/people/000/413/312/headshots/medium/f7cc4a1f80.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413312",
+          "slug": "https://trakt.tv/people/mark-fite",
+          "imdb": "https://www.imdb.com/name/nm0280051",
+          "tmdb": "https://www.themoviedb.org/person/122805"
+        },
+        "character": "Pilot"
+      },
+      {
+        "name": "Levan Uchaneishvili",
+        "image": "https://media.trakt.tv/images/people/000/413/699/headshots/medium/2bdfd60fee.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413699",
+          "slug": "https://trakt.tv/people/levan-uchaneishvili",
+          "imdb": "https://www.imdb.com/name/nm0653654",
+          "tmdb": "https://www.themoviedb.org/person/27037"
+        },
+        "character": "Russian Pilot"
+      },
+      {
+        "name": "Kristof Konrad",
+        "image": "https://media.trakt.tv/images/people/000/413/701/headshots/medium/98d2305dd6.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413701",
+          "slug": "https://trakt.tv/people/kristof-konrad",
+          "imdb": "https://www.imdb.com/name/nm0465311",
+          "tmdb": "https://www.themoviedb.org/person/74502"
+        },
+        "character": "Russian Pilot"
+      },
+      {
+        "name": "Kevin Sifuentes",
+        "image": "https://media.trakt.tv/images/people/000/413/702/headshots/medium/75d78e7819.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413702",
+          "slug": "https://trakt.tv/people/kevin-sifuentes",
+          "imdb": "https://www.imdb.com/name/nm0797393",
+          "tmdb": "https://www.themoviedb.org/person/102578"
+        },
+        "character": "Tank Commander"
+      },
+      {
+        "name": "Elston Ridgle",
+        "image": "https://media.trakt.tv/images/people/000/413/704/headshots/medium/bbfd962b59.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413704",
+          "slug": "https://trakt.tv/people/elston-ridgle",
+          "imdb": "https://www.imdb.com/name/nm0725926",
+          "tmdb": "https://www.themoviedb.org/person/188212"
+        },
+        "character": "Soldier"
+      },
+      {
+        "name": "Randy Oglesby",
+        "image": "https://media.trakt.tv/images/people/000/413/707/headshots/medium/6084fef6ce.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413707",
+          "slug": "https://trakt.tv/people/randy-oglesby",
+          "imdb": "https://www.imdb.com/name/nm0644750",
+          "tmdb": "https://www.themoviedb.org/person/102567"
+        },
+        "character": "Mechanic"
+      },
+      {
+        "name": "Jack Moore",
+        "image": "https://media.trakt.tv/images/people/000/413/710/headshots/medium/f9cf344fd3.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413710",
+          "slug": "https://trakt.tv/people/jack-moore-69432abc-39f8-4c25-a03c-a809abf363a1",
+          "imdb": "https://www.imdb.com/name/nm0601298",
+          "tmdb": "https://www.themoviedb.org/person/117564"
+        },
+        "character": "Mechanic"
+      },
+      {
+        "name": "Barry Del Sherman",
+        "image": "https://media.trakt.tv/images/people/000/000/205/headshots/medium/53c3626232.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/205",
+          "slug": "https://trakt.tv/people/barry-del-sherman",
+          "imdb": "https://www.imdb.com/name/nm0215916",
+          "tmdb": "https://www.themoviedb.org/person/8214"
+        },
+        "character": "Street Preacher"
+      },
+      {
+        "name": "Lyman Ward",
+        "image": "https://media.trakt.tv/images/people/000/413/715/headshots/medium/04c84484c1.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413715",
+          "slug": "https://trakt.tv/people/lyman-ward",
+          "imdb": "https://www.imdb.com/name/nm0911700",
+          "tmdb": "https://www.themoviedb.org/person/90198"
+        },
+        "character": "Secret Service Guy"
+      },
+      {
+        "name": "Anthony Crivello",
+        "image": "https://media.trakt.tv/images/people/000/413/716/headshots/medium/9c39384d7e.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413716",
+          "slug": "https://trakt.tv/people/anthony-crivello",
+          "imdb": "https://www.imdb.com/name/nm0188266",
+          "tmdb": "https://www.themoviedb.org/person/31367"
+        },
+        "character": "Lincoln"
+      },
+      {
+        "name": "Richard Speight Jr.",
+        "image": "https://media.trakt.tv/images/people/000/413/719/headshots/medium/925c2f3877.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413719",
+          "slug": "https://trakt.tv/people/richard-speight-jr",
+          "imdb": "https://www.imdb.com/name/nm0817620",
+          "tmdb": "https://www.themoviedb.org/person/58112"
+        },
+        "character": "Ed"
+      },
+      {
+        "name": "Barbara Beck",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/1756073",
+          "slug": "https://trakt.tv/people/barbara-beck",
+          "imdb": "https://www.imdb.com/name/nm0065077",
+          "tmdb": "https://www.themoviedb.org/person/2570741"
+        },
+        "character": "Monica Soloway"
+      },
+      {
+        "name": "Joe Fowler",
+        "image": "https://media.trakt.tv/images/people/000/413/722/headshots/medium/429b7ef257.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413722",
+          "slug": "https://trakt.tv/people/joe-fowler",
+          "imdb": "https://www.imdb.com/name/nm0288738",
+          "tmdb": "https://www.themoviedb.org/person/169931"
+        },
+        "character": "Reporter"
+      },
+      {
+        "name": "Sharon Tay",
+        "image": "https://media.trakt.tv/images/people/000/413/725/headshots/medium/03fad65b2c.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413725",
+          "slug": "https://trakt.tv/people/sharon-tay",
+          "imdb": "https://www.imdb.com/name/nm0851845",
+          "tmdb": "https://www.themoviedb.org/person/156131"
+        },
+        "character": "Reporter"
+      },
+      {
+        "name": "Peter J. Lucas",
+        "image": "https://media.trakt.tv/images/people/000/016/198/headshots/medium/0644687146.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/16198",
+          "slug": "https://trakt.tv/people/peter-j-lucas",
+          "imdb": "https://www.imdb.com/name/nm0524257",
+          "tmdb": "https://www.themoviedb.org/person/18905"
+        },
+        "character": "Russian Reporter"
+      },
+      {
+        "name": "Yelena Danova",
+        "image": "https://media.trakt.tv/images/people/000/413/728/headshots/medium/e06b336974.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413728",
+          "slug": "https://trakt.tv/people/yelena-danova",
+          "imdb": "https://www.imdb.com/name/nm0200491",
+          "tmdb": "https://www.themoviedb.org/person/163159"
+        },
+        "character": "Russian Newscaster"
+      },
+      {
+        "name": "Johnny Kim",
+        "image": "https://media.trakt.tv/images/people/000/413/730/headshots/medium/ba3acf9268.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413730",
+          "slug": "https://trakt.tv/people/johnny-kim",
+          "imdb": "https://www.imdb.com/name/nm0003261",
+          "tmdb": "https://www.themoviedb.org/person/64881"
+        },
+        "character": "Korean Newscaster"
+      },
+      {
+        "name": "Vanessa J. Wells",
+        "image": "https://media.trakt.tv/images/people/000/006/888/headshots/medium/8af43477fe.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/6888",
+          "slug": "https://trakt.tv/people/vanessa-j-wells",
+          "imdb": "https://www.imdb.com/name/nm0920459",
+          "tmdb": "https://www.themoviedb.org/person/192276"
+        },
+        "character": "Newscaster"
+      },
+      {
+        "name": "Jessika Cardinahl",
+        "image": "https://media.trakt.tv/images/people/000/044/184/headshots/medium/674d9f8ef0.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/44184",
+          "slug": "https://trakt.tv/people/jessika-cardinahl",
+          "imdb": "https://www.imdb.com/name/nm0136468",
+          "tmdb": "https://www.themoviedb.org/person/58382"
+        },
+        "character": "German Video Newscaster"
+      },
+      {
+        "name": "Gary W. Cruz",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/11822",
+          "slug": "https://trakt.tv/people/gary-w-cruz",
+          "imdb": "https://www.imdb.com/name/nm0190319",
+          "tmdb": "https://www.themoviedb.org/person/1116854"
+        },
+        "character": "Video Newscaster"
+      },
+      {
+        "name": "Ron Pitts",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/600238",
+          "slug": "https://trakt.tv/people/ron-pitts-a690a159-3174-4eb7-a84e-cb3035102199",
+          "imdb": "https://www.imdb.com/name/nm0686022",
+          "tmdb": "https://www.themoviedb.org/person/1221120"
+        },
+        "character": "Video Newscaster"
+      },
+      {
+        "name": "Wendy L. Walsh",
+        "image": "https://media.trakt.tv/images/people/001/645/744/headshots/medium/5d54676bc5.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/1645744",
+          "slug": "https://trakt.tv/people/wendy-l-walsh",
+          "imdb": "https://www.imdb.com/name/nm0909910",
+          "tmdb": "https://www.themoviedb.org/person/2478058"
+        },
+        "character": "Video Newscaster"
+      },
+      {
+        "name": "Christine Devine",
+        "image": "https://media.trakt.tv/images/people/000/938/926/headshots/medium/c03c36f5f6.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/938926",
+          "slug": "https://trakt.tv/people/christine-devine",
+          "imdb": "https://www.imdb.com/name/nm0222608",
+          "tmdb": "https://www.themoviedb.org/person/1853388"
+        },
+        "character": "Video Newscaster"
+      },
+      {
+        "name": "Mark Thompson",
+        "image": "https://media.trakt.tv/images/people/000/435/838/headshots/medium/98899712ee.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/435838",
+          "slug": "https://trakt.tv/people/mark-thompson-f730a940-485c-49fd-a07c-13c25120d8a2",
+          "imdb": "https://www.imdb.com/name/nm0860465",
+          "tmdb": "https://www.themoviedb.org/person/93344"
+        },
+        "character": "Video Newscaster"
+      },
+      {
+        "name": "Ernie Anastos",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/1102075",
+          "slug": "https://trakt.tv/people/ernie-anastos",
+          "imdb": "https://www.imdb.com/name/nm0025727",
+          "tmdb": "https://www.themoviedb.org/person/2005030"
+        },
+        "character": "Rex Black / NY Newscaster"
+      },
+      {
+        "name": "Kevin Cooney",
+        "image": "https://media.trakt.tv/images/people/000/414/648/headshots/medium/808cc4bd24.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/414648",
+          "slug": "https://trakt.tv/people/kevin-cooney",
+          "imdb": "https://www.imdb.com/name/nm0004668",
+          "tmdb": "https://www.themoviedb.org/person/25711"
+        },
+        "character": "Atlantic Air CINC"
+      },
+      {
+        "name": "Rance Howard",
+        "image": "https://media.trakt.tv/images/people/000/007/364/headshots/medium/785d5da170.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/7364",
+          "slug": "https://trakt.tv/people/rance-howard",
+          "imdb": "https://www.imdb.com/name/nm0397555",
+          "tmdb": "https://www.themoviedb.org/person/22250"
+        },
+        "character": "Chaplain"
+      },
+      {
+        "name": "Nelson Mashita",
+        "image": "https://media.trakt.tv/images/people/000/043/798/headshots/medium/9b60958f4e.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/43798",
+          "slug": "https://trakt.tv/people/nelson-mashita",
+          "imdb": "https://www.imdb.com/name/nm0556335",
+          "tmdb": "https://www.themoviedb.org/person/57959"
+        },
+        "character": "Japanese Tech"
+      },
+      {
+        "name": "Jeff Phillips",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/484119",
+          "slug": "https://trakt.tv/people/jeff-phillips-c1edc4cb-6c9e-44dc-ae73-ab071d08fd37",
+          "imdb": "https://www.imdb.com/name/nm0680483",
+          "tmdb": "https://www.themoviedb.org/person/1225995"
+        },
+        "character": "B-2 Pilot"
+      },
+      {
+        "name": "Sayed Badreya",
+        "image": "https://media.trakt.tv/images/people/000/016/104/headshots/medium/089adfaa15.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/16104",
+          "slug": "https://trakt.tv/people/sayed-badreya",
+          "imdb": "https://www.imdb.com/name/nm0046223",
+          "tmdb": "https://www.themoviedb.org/person/173810"
+        },
+        "character": "Arab Pilot"
+      },
+      {
+        "name": "Adam Tomei",
+        "image": "https://media.trakt.tv/images/people/000/413/732/headshots/medium/a0d542835a.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413732",
+          "slug": "https://trakt.tv/people/adam-tomei",
+          "imdb": "https://www.imdb.com/name/nm0866608",
+          "tmdb": "https://www.themoviedb.org/person/177144"
+        },
+        "character": "Sailor"
+      },
+      {
+        "name": "John Bradley",
+        "image": "https://media.trakt.tv/images/people/000/403/094/headshots/medium/a7542c5315.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/403094",
+          "slug": "https://trakt.tv/people/john-bradley-b1fe6c9f-6df4-4d1f-a299-7cd1cb631b70",
+          "imdb": "https://www.imdb.com/name/nm0103280",
+          "tmdb": "https://www.themoviedb.org/person/1219582"
+        },
+        "character": "Lucas"
+      },
+      {
+        "name": "Kimberly Beck",
+        "image": "https://media.trakt.tv/images/people/000/411/711/headshots/medium/2f08173bdf.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/411711",
+          "slug": "https://trakt.tv/people/kimberly-beck",
+          "imdb": "https://www.imdb.com/name/nm0065206",
+          "tmdb": "https://www.themoviedb.org/person/2174"
+        },
+        "character": "Housewife"
+      },
+      {
+        "name": "Thomas F. Duffy",
+        "image": "https://media.trakt.tv/images/people/000/412/497/headshots/medium/84ff69c109.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/412497",
+          "slug": "https://trakt.tv/people/thomas-f-duffy",
+          "imdb": "https://www.imdb.com/name/nm0240622",
+          "tmdb": "https://www.themoviedb.org/person/46919"
+        },
+        "character": "Lieutenant"
+      },
+      {
+        "name": "Andrew Keegan",
+        "image": "https://media.trakt.tv/images/people/000/413/737/headshots/medium/a2d8674b84.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413737",
+          "slug": "https://trakt.tv/people/andrew-keegan",
+          "imdb": "https://www.imdb.com/name/nm0005080",
+          "tmdb": "https://www.themoviedb.org/person/40979"
+        },
+        "character": "Older Boy"
+      },
+      {
+        "name": "Jim Piddock",
+        "image": "https://media.trakt.tv/images/people/000/413/738/headshots/medium/ebae5443fc.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413738",
+          "slug": "https://trakt.tv/people/jim-piddock",
+          "imdb": "https://www.imdb.com/name/nm0682063",
+          "tmdb": "https://www.themoviedb.org/person/120560"
+        },
+        "character": "Reginald"
+      },
+      {
+        "name": "Eleanor Clift",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/54932",
+          "slug": "https://trakt.tv/people/eleanor-clift",
+          "imdb": "https://www.imdb.com/name/nm0166701",
+          "tmdb": "https://www.themoviedb.org/person/1004223"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "Jerry Dunphy",
+        "image": "https://media.trakt.tv/images/people/000/008/360/headshots/medium/a30dc09171.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/8360",
+          "slug": "https://trakt.tv/people/jerry-dunphy",
+          "imdb": "https://www.imdb.com/name/nm0242991",
+          "tmdb": "https://www.themoviedb.org/person/169317"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "Jack Germond",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/1801397",
+          "slug": "https://trakt.tv/people/jack-germond",
+          "imdb": "https://www.imdb.com/name/nm0314595",
+          "tmdb": "https://www.themoviedb.org/person/1242307"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "Morton Kondracke",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/54938",
+          "slug": "https://trakt.tv/people/morton-kondracke",
+          "imdb": "https://www.imdb.com/name/nm0464935",
+          "tmdb": "https://www.themoviedb.org/person/1171068"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "John McLaughlin",
+        "image": "https://media.trakt.tv/images/people/000/426/999/headshots/medium/60ba367290.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/426999",
+          "slug": "https://trakt.tv/people/john-mclaughlin-eb8ccc06-0ed6-4084-b581-add22e44a7d1",
+          "imdb": "https://www.imdb.com/name/nm0572349",
+          "tmdb": "https://www.themoviedb.org/person/559766"
+        },
+        "character": "Himself"
+      },
+      {
+        "name": "Barry Nolan",
+        "image": "https://media.trakt.tv/images/people/000/813/564/headshots/medium/23e724fd5e.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/813564",
+          "slug": "https://trakt.tv/people/barry-nolan",
+          "imdb": "https://www.imdb.com/name/nm0634218",
+          "tmdb": "https://www.themoviedb.org/person/1222355"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "George Putnam",
+        "image": "https://media.trakt.tv/images/people/000/073/059/headshots/medium/1478186962.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/73059",
+          "slug": "https://trakt.tv/people/george-putnam",
+          "imdb": "https://www.imdb.com/name/nm0701216",
+          "tmdb": "https://www.themoviedb.org/person/229299"
+        },
+        "character": "Self"
+      },
+      {
+        "name": "Eric Michael Zee",
+        "image": "https://media.trakt.tv/images/people/001/801/398/headshots/medium/6fe2ef1bac.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/1801398",
+          "slug": "https://trakt.tv/people/eric-michael-zee",
+          "imdb": "https://www.imdb.com/name/nm0954170",
+          "tmdb": "https://www.themoviedb.org/person/2614654"
+        },
+        "character": "Northridge Field Reporter"
+      },
+      {
+        "name": "Pat Skipper",
+        "image": "https://media.trakt.tv/images/people/000/413/740/headshots/medium/2322c5d479.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413740",
+          "slug": "https://trakt.tv/people/pat-skipper",
+          "imdb": "https://www.imdb.com/name/nm0804361",
+          "tmdb": "https://www.themoviedb.org/person/6326"
+        },
+        "character": "Redneck"
+      },
+      {
+        "name": "Mike Monteleone",
+        "image": "https://media.trakt.tv/images/people/001/801/399/headshots/medium/75b5433c77.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/1801399",
+          "slug": "https://trakt.tv/people/mike-monteleone",
+          "imdb": "https://www.imdb.com/name/nm0599296",
+          "tmdb": "https://www.themoviedb.org/person/2614655"
+        },
+        "character": "Butler"
+      },
+      {
+        "name": "Lee Strauss",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/215203",
+          "slug": "https://trakt.tv/people/lee-strauss",
+          "imdb": "https://www.imdb.com/name/nm4517565",
+          "tmdb": "https://www.themoviedb.org/person/1188694"
+        },
+        "character": "Elvis Fanatic"
+      },
+      {
+        "name": "Lisa Star",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/113585",
+          "slug": "https://trakt.tv/people/lisa-star",
+          "imdb": "https://www.imdb.com/name/nm0823023",
+          "tmdb": "https://www.themoviedb.org/person/1139961"
+        },
+        "character": "Woman on Roof"
+      },
+      {
+        "name": "Malcolm Danare",
+        "image": "https://media.trakt.tv/images/people/000/413/227/headshots/medium/9e0e768111.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413227",
+          "slug": "https://trakt.tv/people/malcolm-danare",
+          "imdb": "https://www.imdb.com/name/nm0199118",
+          "tmdb": "https://www.themoviedb.org/person/14738"
+        },
+        "character": "Intellectual on Roof"
+      },
+      {
+        "name": "Arthur Brooks",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/389089",
+          "slug": "https://trakt.tv/people/arthur-brooks",
+          "imdb": "https://www.imdb.com/name/nm2087707",
+          "tmdb": "https://www.themoviedb.org/person/1353559"
+        },
+        "character": "Trucker on Roof"
+      },
+      {
+        "name": "Michael Moertl",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/753964",
+          "slug": "https://trakt.tv/people/michael-moertl",
+          "imdb": "https://www.imdb.com/name/nm0595522",
+          "tmdb": "https://www.themoviedb.org/person/1720982"
+        },
+        "character": "Thief"
+      },
+      {
+        "name": "Joyce Cohen",
+        "image": "https://media.trakt.tv/images/people/000/070/998/headshots/medium/ffbde938bf.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/70998",
+          "slug": "https://trakt.tv/people/joyce-cohen",
+          "imdb": "https://www.imdb.com/name/nm0169525",
+          "tmdb": "https://www.themoviedb.org/person/180637"
+        },
+        "character": "Kim Peters (Reporter)"
+      },
+      {
+        "name": "Julie Moran",
+        "image": "https://media.trakt.tv/images/people/001/487/511/headshots/medium/755ca063d2.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/1487511",
+          "slug": "https://trakt.tv/people/julie-moran",
+          "imdb": "https://www.imdb.com/name/nm0602888",
+          "tmdb": "https://www.themoviedb.org/person/1222782"
+        },
+        "character": "Entertainment Tonight Reporter"
+      },
+      {
+        "name": "Richard Pachorek",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/435928",
+          "slug": "https://trakt.tv/people/richard-pachorek",
+          "imdb": "https://www.imdb.com/name/nm0655367",
+          "tmdb": "https://www.themoviedb.org/person/1384774"
+        },
+        "character": "LAPD Helicopter Pilot"
+      },
+      {
+        "name": "Dakota",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/2330450",
+          "slug": "https://trakt.tv/people/dakota-e60f78c9-ea7d-4e7d-b077-f226bcdddd31",
+          "imdb": "https://www.imdb.com/name/nm9405323",
+          "tmdb": "https://www.themoviedb.org/person/2298605"
+        },
+        "character": "Boomer"
+      },
+      {
+        "name": "Gary A. Hecker",
+        "image": "https://media.trakt.tv/images/people/000/013/602/headshots/medium/e34c393746.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/13602",
+          "slug": "https://trakt.tv/people/gary-a-hecker",
+          "imdb": "https://www.imdb.com/name/nm0373036",
+          "tmdb": "https://www.themoviedb.org/person/1077782"
+        },
+        "character": "Alien Vocal Effects (voice)"
+      },
+      {
+        "name": "Frank Welker",
+        "image": "https://media.trakt.tv/images/people/000/009/271/headshots/medium/f26d99b6ad.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/9271",
+          "slug": "https://trakt.tv/people/frank-welker",
+          "imdb": "https://www.imdb.com/name/nm0919798",
+          "tmdb": "https://www.themoviedb.org/person/15831"
+        },
+        "character": "Special Vocal Effects (voice)"
+      }
+    ],
+    "directors": [
+      {
+        "name": "Dean Devlin",
+        "image": "https://media.trakt.tv/images/people/000/006/911/headshots/medium/76d0caedad.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/6911",
+          "slug": "https://trakt.tv/people/dean-devlin",
+          "imdb": "https://www.imdb.com/name/nm0002041",
+          "tmdb": "https://www.themoviedb.org/person/8676"
+        },
+        "job": "Second Unit Director"
+      },
+      {
+        "name": "Kim H. Winther",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/39391",
+          "slug": "https://trakt.tv/people/kim-h-winther",
+          "imdb": "https://www.imdb.com/name/nm0936039",
+          "tmdb": "https://www.themoviedb.org/person/54267"
+        },
+        "job": "Second Assistant Director"
+      },
+      {
+        "name": "Susan Bierbaum",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/55150",
+          "slug": "https://trakt.tv/people/susan-bierbaum",
+          "imdb": "https://www.imdb.com/name/nm0081545",
+          "tmdb": "https://www.themoviedb.org/person/1342629"
+        },
+        "job": "Script Supervisor"
+      },
+      {
+        "name": "Glen Trotiner",
+        "image": "https://media.trakt.tv/images/people/000/058/188/headshots/medium/6c4d211770.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/58188",
+          "slug": "https://trakt.tv/people/glen-trotiner",
+          "imdb": "https://www.imdb.com/name/nm0873641",
+          "tmdb": "https://www.themoviedb.org/person/72974"
+        },
+        "job": "Second Assistant Director"
+      },
+      {
+        "name": "Michael Viglietta",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/75997",
+          "slug": "https://trakt.tv/people/michael-viglietta",
+          "imdb": "https://www.imdb.com/name/nm0896997",
+          "tmdb": "https://www.themoviedb.org/person/83656"
+        },
+        "job": "First Assistant Director"
+      },
+      {
+        "name": "Kevin LaRosa",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/93852",
+          "slug": "https://trakt.tv/people/kevin-larosa",
+          "imdb": "https://www.imdb.com/name/nm0478985",
+          "tmdb": "https://www.themoviedb.org/person/111187"
+        },
+        "job": "Second Unit Director"
+      },
+      {
+        "name": "Roland Emmerich",
+        "image": "https://media.trakt.tv/images/people/000/412/918/headshots/medium/c8f7628811.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/412918",
+          "slug": "https://trakt.tv/people/roland-emmerich",
+          "imdb": "https://www.imdb.com/name/nm0000386",
+          "tmdb": "https://www.themoviedb.org/person/6046"
+        },
+        "job": "Director"
+      },
+      {
+        "name": "Annie Welles",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/413778",
+          "slug": "https://trakt.tv/people/annie-welles",
+          "imdb": "https://www.imdb.com/name/nm0919910",
+          "tmdb": "https://www.themoviedb.org/person/1391605"
+        },
+        "job": "Script Supervisor"
+      },
+      {
+        "name": "Marvel Wakefield",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/413779",
+          "slug": "https://trakt.tv/people/marvel-wakefield",
+          "imdb": "https://www.imdb.com/name/nm0906793",
+          "tmdb": "https://www.themoviedb.org/person/1391606"
+        },
+        "job": "Script Supervisor"
+      },
+      {
+        "name": "Sergio Mimica-Gezzan",
+        "image": "https://media.trakt.tv/images/people/000/413/991/headshots/medium/a767c940b9.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/413991",
+          "slug": "https://trakt.tv/people/sergio-mimica-gezzan",
+          "imdb": "https://www.imdb.com/name/nm0590790",
+          "tmdb": "https://www.themoviedb.org/person/9264"
+        },
+        "job": "First Assistant Director"
+      },
+      {
+        "name": "Bac DeLorme",
+        "image": "",
+        "links": {
+          "trakt": "https://trakt.tv/people/1045167",
+          "slug": "https://trakt.tv/people/bac-delorme",
+          "imdb": "https://www.imdb.com/name/nm0004638",
+          "tmdb": "https://www.themoviedb.org/person/1952066"
+        },
+        "job": "Second Unit Director"
+      }
+    ],
+    "writers": [
+      {
+        "name": "Dean Devlin",
+        "image": "https://media.trakt.tv/images/people/000/006/911/headshots/medium/76d0caedad.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/6911",
+          "slug": "https://trakt.tv/people/dean-devlin",
+          "imdb": "https://www.imdb.com/name/nm0002041",
+          "tmdb": "https://www.themoviedb.org/person/8676"
+        },
+        "job": "Screenplay"
+      },
+      {
+        "name": "Roland Emmerich",
+        "image": "https://media.trakt.tv/images/people/000/412/918/headshots/medium/c8f7628811.jpg.webp",
+        "links": {
+          "trakt": "https://trakt.tv/people/412918",
+          "slug": "https://trakt.tv/people/roland-emmerich",
+          "imdb": "https://www.imdb.com/name/nm0000386",
+          "tmdb": "https://www.themoviedb.org/person/6046"
+        },
+        "job": "Screenplay"
+      }
+    ]
+  },
+  "seasons": null
+}

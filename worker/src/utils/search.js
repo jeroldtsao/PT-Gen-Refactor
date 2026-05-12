@@ -77,10 +77,18 @@ const _searchViaScraping = async (query) => {
         }
 
         const html = await response.text();
+
+        // Check for AWS WAF challenge page / 检测 AWS WAF 挑战页面
+        if (html.includes('awsWafCookieDomainList') || html.includes('window.gokuProps') || html.includes('challenge-container')) {
+            logger.warn("⚠️ IMDb 返回 AWS WAF 挑战页面，无法获取数据", {query});
+            return [];
+        }
+
         const getters = page_parser(html);
         const dataElement = getters(DATA_SELECTOR);
 
         if (dataElement.length === 0) {
+            logger.warn("⚠️ IMDb 页面未找到 __NEXT_DATA__ 元素", {query});
             return [];
         }
 
@@ -98,7 +106,7 @@ const _searchViaScraping = async (query) => {
             return {
                 year: item['releaseYear'],
                 subtype: item['titleType']?.['id'],
-                title: item['originalTitleText'],
+                title: item['originalTitleText'] || item['titleText'],
                 subtitle: item['plot'],
                 rating: item['ratingSummary']?.['aggregateRating'], // 解决 aggregateRating 报错
                 id: item['titleId'],
@@ -576,6 +584,13 @@ export const handleAutoSearch = async (query, env) => {
             logger.debug("🇺🇸 检测到外文，使用 IMDb 搜索", {query});
             provider = {search: search_imdb, site: "search-imdb", name: "IMDb"};
             searchResult = await search_imdb(query);
+
+            // IMDb 搜索失败时回退到 TMDB
+            if (!searchResult.success || !searchResult.data || searchResult.data.length === 0) {
+                logger.warn("⚠️ IMDb 搜索失败，回退到 TMDB", {query});
+                provider = {search: search_tmdb, site: "search-tmdb", name: "TMDB"};
+                searchResult = await search_tmdb(query, env);
+            }
         }
 
         logger.info("✅ 搜索完成", {

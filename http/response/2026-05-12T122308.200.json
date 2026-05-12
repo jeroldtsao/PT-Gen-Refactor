@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "error": null,
+  "format": "",
+  "version": "1.0.8",
+  "generate_at": 1778559788928,
+  "copyright": "Powered by @Hares",
+  "data": [
+    {
+      "subtype": "可播放",
+      "title": "流浪地球‎ (2019)",
+      "abstract": "中国大陆 / 科幻 / 冒险 / 灾难 / 流浪地球：飞跃2020特别版 / The Wandering Earth / 125分钟",
+      "actors": "郭帆 / 吴京 / 屈楚萧 / 李光洁 / 吴孟达 / 赵今麦 / 隋凯 / 屈菁菁 / 张亦驰",
+      "link": "https://movie.douban.com/subject/26266893/",
+      "id": 26266893,
+      "rating": "7.9",
+      "img": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2545472803.webp"
+    },
+    {
+      "subtype": "可播放",
+      "title": "流浪地球2‎ (2023)",
+      "abstract": "中国大陆 / 科幻 / 冒险 / 灾难 / 流浪地球2(3D版) / The Wandering Earth Ⅱ / 173分钟",
+      "actors": "郭帆 / 吴京 / 刘德华 / 李雪健 / 沙溢 / 宁理 / 王智 / 朱颜曼滋 / 安地",
+      "link": "https://movie.douban.com/subject/35267208/",
+      "id": 35267208,
+      "rating": "8.3",
+      "img": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2916835424.webp"
+    },
+    {
+      "subtype": "movie",
+      "title": "流浪地球3(上)‎ (2027)",
+      "abstract": "中国大陆 / 科幻 / 冒险 / 灾难 / The Wandering Earth Ⅲ / The Wandering Earth 3",
+      "actors": "郭帆 / 吴京 / 沈腾 / 刘德华 / 李雪健 / 屈楚萧 / 马丽 / 杨紫琼 / 李光洁",
+      "link": "https://movie.douban.com/subject/36212391/",
+      "id": 36212391,
+      "rating": "暂无评分",
+      "img": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2900219796.webp"
+    },
+    {
+      "subtype": "movie",
+      "title": "流浪地球3(下)‎ (2028)",
+      "abstract": "中国大陆 / 科幻 / 冒险 / 灾难 / 流浪地球4",
+      "actors": "郭帆 / 吴京 / 沈腾 / 刘德华 / 李雪健 / 屈楚萧 / 赵今麦",
+      "link": "https://movie.douban.com/subject/37106774/",
+      "id": 37106774,
+      "rating": "暂无评分",
+      "img": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2915091857.webp"
+    },
+    {
+      "subtype": "可播放",
+      "title": "流浪地球2：再次冒险‎ (2024)",
+      "abstract": "中国大陆 / 纪录片 / 推向星辰：流浪地球2背后的另一场冒险 / 《流浪地球2》纪录片 / 103分钟",
+      "actors": "郭思文 / 郭帆 / 刘寅 / 郜昂 / 龚格尔 / 王红卫 / 刘慈欣 / 徐建 / 魏明",
+      "link": "https://movie.douban.com/subject/36233343/",
+      "id": 36233343,
+      "rating": "8.8",
+      "img": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2911730278.webp"
+    },
+    {
+      "subtype": "剧集",
+      "title": "流浪地球短片集‎ (2026)",
+      "abstract": "中国大陆 / 剧情 / 科幻",
+      "actors": "郭帆 / 孔大山 / 沈今晶 / 邹飞 / 周涤啡 / 袁智超 / 袁菲 / 余庆 / 徐建 / 李海龙 / 沈婳 / 金龙 / 胡国瀚 / 高峡",
+      "link": "https://movie.douban.com/subject/36610198/",
+      "id": 36610198,
+      "rating": "暂无评分",
+      "img": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2919520461.webp"
+    },
+    {
+      "subtype": "剧集",
+      "title": "流浪地球‎ (2025)",
+      "abstract": "中国大陆 / 纪录片",
+      "actors": "",
+      "link": "https://movie.douban.com/subject/37401936/",
+      "id": 37401936,
+      "rating": "暂无评分",
+      "img": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2922678204.webp"
+    }
+  ],
+  "site": "search-douban"
+}

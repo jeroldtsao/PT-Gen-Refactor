@@ -468,6 +468,15 @@ export const handleRequest = async (request, env) => {
     // Handle image proxy requests / 处理图片代理请求
     if (url.pathname === "/img" && url.searchParams.has("url")) {
         logger.debug("📷 处理图片代理请求", {url: url.searchParams.get("url")});
+
+        // 验证 API key / Validate API key
+        if (env?.API_KEY) {
+            const apiKey = url.searchParams.get("key");
+            if (!apiKey || apiKey !== env.API_KEY) {
+                return createErrorResponse(new AuthError("Invalid or missing API key. Access denied."));
+            }
+        }
+
         return handleImageProxy(url);
     }
 

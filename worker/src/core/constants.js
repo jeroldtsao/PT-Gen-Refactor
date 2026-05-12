@@ -34,7 +34,7 @@ export const ROOT_PAGE_CONFIG = {
         <h1>PT-Gen API Service</h1>
         <p>这是一个媒体信息生成服务，支持从豆瓣、IMDb、TMDB、Bangumi等平台获取媒体信息。</p>
         <h2>更多信息</h2>
-        <p>请访问<a href="https://github.com/rabbitwit/PT-Gen-Refactor" target="_blank" rel="noopener noreferrer">PT-Gen-Refactor</a>项目文档了解详细使用方法。</p>
+        <p>请访问<a href="https://github.com/jeroldtsao/PT-Gen-Refactor" target="_blank" rel="noopener noreferrer">PT-Gen-Refactor</a>项目文档了解详细使用方法。</p>
         <p>__COPYRIGHT__</p>
     </div>
 </body>

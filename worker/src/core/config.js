@@ -22,10 +22,12 @@ export const getDouBanHeaders = (env = {}) => ({
 });
 
 /**
- * Generates HTTP headers for IMDb API requests with Googlebot User-Agent simulation.
+ * Generates HTTP headers for IMDb API requests with browser-like User-Agent.
  * Uses closure caching to avoid recreating headers on each call.
- * 生成带有 Googlebot User-Agent 模拟的 IMDb API 请求 HTTP 头。
+ * Note: Googlebot UA triggers AWS WAF challenge, using normal browser UA instead.
+ * 生成带有浏览器 User-Agent 的 IMDb API 请求 HTTP 头。
  * 使用闭包缓存避免每次调用时重新创建头信息。
+ * 注意：Googlebot UA 会触发 AWS WAF 挑战，改用普通浏览器 UA。
  *
  * @returns {Object} HTTP headers object optimized for IMDb scraping (针对 IMDb 爬取优化的 HTTP 头对象)
  */
@@ -35,24 +37,23 @@ export const getImdbHeaders = (() => {
         if (cachedHeaders) return {...cachedHeaders};
 
         cachedHeaders = {
-            "User-Agent": "Googlebot/2.1 (+https://www.google.com/bot.html)",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
             Accept:
                 "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8",
             "Accept-Encoding": "gzip, deflate, br, zstd",
             Connection: "keep-alive",
             "Upgrade-Insecure-Requests": "1",
             "Sec-Fetch-Dest": "document",
             "Sec-Fetch-Mode": "navigate",
-            "Sec-Fetch-Site": "same-origin",
+            "Sec-Fetch-Site": "none",
             "Sec-Fetch-User": "?1",
             "sec-ch-ua":
-                '"Not;A=Brand";v="99", "Google Chrome";v="139", "Chromium";v="139"',
+                '"Chromium";v="139", "Google Chrome";v="139", "Not_A Brand";v="99"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Windows"',
             "Cache-Control": "max-age=0",
             Priority: "u=0, i",
-            referer: "https://www.google.com/",
         };
 
         return {...cachedHeaders};

@@ -1,0 +1,117 @@
+{
+  "success": true,
+  "error": null,
+  "format": "[img]https://image.tmdb.org/t/p/w500/rqliuvX7NdknSHu5qaSDfESplQi.jpg[/img]\n\n❁ Title:　绝命毒师\n❁ Original Title:　Breaking Bad\n❁ Genres:　剧情 / 犯罪\n❁ Languages:　English / German / Spanish\n❁ First Air Date:　2008-01-20\n❁ Number of Episodes:　62\n❁ Number of Seasons:　5\n❁ Episode Runtime:　N/A\n❁ Production Countries:　United States of America\n❁ Rating:　8.943 / 10 from 17675 users\n❁ TMDB Link:　https://www.themoviedb.org/tv/1396/\n❁ IMDb Link:　https://www.imdb.com/title/tt0903747/\n❁ Producers:　黛安娜·默瑟 / 布莱恩·克兰斯顿 / 斯图尔特·莱昂斯\n\n❁ Cast\n  布莱恩·克兰斯顿 as Walter White\n  亚伦·保尔 as Jesse Pinkman\n  安娜·冈 as Skyler White\n  RJ·米特 as Walter White Jr.\n  迪恩·诺里斯 as Hank Schrader\n  贝琪·勃兰特 as Marie Schrader\n  鲍勃·奥登科克 as Saul Goodman\n  乔纳森·班克斯 as Mike Ehrmantraut\n\n❁ Introduction\n　　新墨西哥州的高中化学老师沃尔特·H·怀特是拮据家庭的唯一经济来源。他大半生安分守己，兢兢业业，却在50岁生日之际突然得知自己罹患肺癌晚期的噩耗，原本便不甚顺意的人生顿时雪上加霜。为了保障怀孕的妻子斯凯勒和残疾的儿子小沃特能在自己死后衣食无忧，沃尔特决意铤而走险。他主动找到曾经的学生、而今的毒贩小混混杰西·平克曼谈合作，并运用娴熟高超的化学技术提炼出高纯度冰毒交给后者贩售。孰料事态的发展却在平克曼带回毒品供销商疯狂小八及其表弟后急转直下，沃尔特的人生也由此彻底步向失控。他被迫开始了教书与制毒的双重生活，逐渐坠落至万劫不复的深渊。",
+  "version": "1.0.8",
+  "generate_at": 1778559159293,
+  "copyright": "Powered by @Hares",
+  "site": "tmdb",
+  "sid": "tv/1396",
+  "tmdb_id": 1396,
+  "title": "绝命毒师",
+  "original_title": "Breaking Bad",
+  "overview": "新墨西哥州的高中化学老师沃尔特·H·怀特是拮据家庭的唯一经济来源。他大半生安分守己，兢兢业业，却在50岁生日之际突然得知自己罹患肺癌晚期的噩耗，原本便不甚顺意的人生顿时雪上加霜。为了保障怀孕的妻子斯凯勒和残疾的儿子小沃特能在自己死后衣食无忧，沃尔特决意铤而走险。他主动找到曾经的学生、而今的毒贩小混混杰西·平克曼谈合作，并运用娴熟高超的化学技术提炼出高纯度冰毒交给后者贩售。孰料事态的发展却在平克曼带回毒品供销商疯狂小八及其表弟后急转直下，沃尔特的人生也由此彻底步向失控。他被迫开始了教书与制毒的双重生活，逐渐坠落至万劫不复的深渊。",
+  "poster": "https://image.tmdb.org/t/p/w500/rqliuvX7NdknSHu5qaSDfESplQi.jpg",
+  "backdrop": "https://image.tmdb.org/t/p/w500/tsRy63Mu5cu8etL1X7ZLyf7UP1M.jpg",
+  "first_air_date": "2008-01-20",
+  "last_air_date": "2013-09-29",
+  "year": "2008",
+  "episode_run_time": "",
+  "number_of_episodes": 62,
+  "number_of_seasons": 5,
+  "tmdb_rating_average": 8.943,
+  "tmdb_votes": 17675,
+  "tmdb_rating": "8.943 / 10 from 17675 users",
+  "genres": [
+    "剧情",
+    "犯罪"
+  ],
+  "languages": [
+    "English",
+    "German",
+    "Spanish"
+  ],
+  "countries": [
+    "United States of America"
+  ],
+  "production_companies": [
+    "Sony Pictures Television",
+    "High Bridge Productions",
+    "Gran Via Productions"
+  ],
+  "directors": [],
+  "producers": [
+    {
+      "name": "黛安娜·默瑟",
+      "id": 1223202
+    },
+    {
+      "name": "布莱恩·克兰斯顿",
+      "id": 17419
+    },
+    {
+      "name": "斯图尔特·莱昂斯",
+      "id": 1223200
+    }
+  ],
+  "cast": [
+    {
+      "id": 17419,
+      "name": "布莱恩·克兰斯顿",
+      "original_name": "Bryan Cranston",
+      "character": "Walter White",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/npIIZJGSrcJIJ6yHdmbqO6Jzo5I.jpg"
+    },
+    {
+      "id": 84497,
+      "name": "亚伦·保尔",
+      "original_name": "Aaron Paul",
+      "character": "Jesse Pinkman",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/8Ac9uuoYwZoYVAIJfRLzzLsGGJn.jpg"
+    },
+    {
+      "id": 134531,
+      "name": "安娜·冈",
+      "original_name": "Anna Gunn",
+      "character": "Skyler White",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/adppyeu1a4REN3khtgmXusrapFi.jpg"
+    },
+    {
+      "id": 209674,
+      "name": "RJ·米特",
+      "original_name": "RJ Mitte",
+      "character": "Walter White Jr.",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/sNPA92ZrssYhlaB1UA2pWcLD9db.jpg"
+    },
+    {
+      "id": 14329,
+      "name": "迪恩·诺里斯",
+      "original_name": "Dean Norris",
+      "character": "Hank Schrader",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/mKRrEbsxAX3ro700HsViFArRM7l.jpg"
+    },
+    {
+      "id": 1217934,
+      "name": "贝琪·勃兰特",
+      "original_name": "Betsy Brandt",
+      "character": "Marie Schrader",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/xAnuzyjdMbQq9L1c4JNwXL52Wm4.jpg"
+    },
+    {
+      "id": 59410,
+      "name": "鲍勃·奥登科克",
+      "original_name": "Bob Odenkirk",
+      "character": "Saul Goodman",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/rF0Lb6SBhGSTvjRffmlKRSeI3jE.jpg"
+    },
+    {
+      "id": 783,
+      "name": "乔纳森·班克斯",
+      "original_name": "Jonathan Banks",
+      "character": "Mike Ehrmantraut",
+      "image": "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/bswk26L13PvY4iMTwUTAsepXCLv.jpg"
+    }
+  ],
+  "imdb_id": "tt0903747",
+  "imdb_link": "https://www.imdb.com/title/tt0903747/"
+}
