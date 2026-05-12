@@ -34,6 +34,11 @@ jobs:
         run: npm ci
         working-directory: frontend
 
+      - name: Create frontend .env file
+        run: |
+          echo "VITE_AUTH_SECRET=${{ secrets.VITE_AUTH_SECRET }}" > frontend/.env
+          echo "VITE_LOG_LEVEL=none" >> frontend/.env
+
       - name: Build frontend assets
         run: npm run build
         working-directory: frontend

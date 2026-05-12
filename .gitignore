@@ -1,6 +1,10 @@
 # Node.js dependencies
 node_modules/
 
+# Package lock files
+!**/package-lock.json
+package-lock.json
+
 # Package lock files (keep them for CI)
 pnpm-lock.yaml
 yarn.lock
@@ -19,6 +23,7 @@ frontend/dist/
 .env.production.local
 .dev.vars
 http/http-client.env.json
+http/http-client.private.env.json
 
 # Wrangler local state
 .wrangler/
