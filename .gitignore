@@ -1,9 +1,7 @@
 # Node.js dependencies
 node_modules/
 
-# Package lock files
-!**/package-lock.json
-package-lock.json
+# Package lock files (keep them for CI)
 pnpm-lock.yaml
 yarn.lock
 
