@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 import "./App.css";
 import logger from "./utils/logger";
 
+// 从 package.json 获取版本号（Vite 构建时注入）
+const APP_VERSION = import.meta.env.VITE_APP_VERSION || "1.0.8";
+
 function App() {
     const [url, setUrl] = useState("");
     const [result, setResult] = useState("");
@@ -704,7 +707,10 @@ function App() {
                             />
                             <h1 className="text-xl font-medium text-gray-900">PT-Gen</h1>
                         </div>
-                        <nav className="flex space-x-4">
+                        <nav className="flex items-center space-x-4">
+                            <span className="text-sm text-gray-500">
+                                v{APP_VERSION}
+                            </span>
                             <a
                                 href="https://github.com/jeroldtsao/PT-Gen-Refactor"
                                 target="_blank"

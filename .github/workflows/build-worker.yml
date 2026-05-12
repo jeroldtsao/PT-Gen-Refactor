@@ -14,7 +14,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,6 +25,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: Sync version across packages
+        run: |
+          node scripts/sync-version.mjs
 
       - name: Generate package-lock.json if not exists
         run: |
@@ -56,25 +60,25 @@ jobs:
           # 创建一个临时目录来保存bundle.js
           mkdir -p /tmp/build
           cp worker/dist/bundle.js /tmp/build/bundle.js
-          
+
           # 删除远程的build分支（如果存在）
           git push origin --delete build 2>/dev/null || echo "No remote build branch to delete"
-          
+
           # 创建一个孤立的build分支
           git checkout --orphan build
-          
+
           # 清理工作目录
           git rm -rf --cached . 2>/dev/null || true
-          
+
           # 从临时目录复制bundle.js到工作目录
           cp /tmp/build/bundle.js .
-          
+
           # 添加bundle.js到git
           git add bundle.js
-          
+
           # 提交
-          git -c user.name='github-actions[bot]' -c user.email='github-actions[bot]@users.noreply.github.com' commit -m "Auto-build: Single file bundle"
-          
+          git -c user.name='github-actions[bot]' -c user.email='github-actions[bot]@users.noreply.github.com' commit -m "Auto-build: Single file bundle v$(node -p "require('./package.json').version")"
+
           # 推送到远程
           git push -u origin build
 

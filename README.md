@@ -148,15 +148,31 @@ curl "http://localhost:8787/api?url=https://movie.douban.com/subject/35267208/&k
 
 ### 开发脚本汇总
 
-| 命令 | 目录 | 说明 |
-|------|------|------|
-| `npm run dev` | worker | 启动 Worker 开发服务器 |
-| `npm run dev` | frontend | 启动前端开发服务器 |
-| `npm run build` | frontend | 构建前端生产版本 |
-| `npm run deploy` | worker | 部署 Worker 到 Cloudflare |
-| `npm run test:bangumi` | worker | 运行 Bangumi 测试 |
+| 命令 | 说明 |
+|------|------|
+| `npm run sync-version` | 同步版本号到所有相关文件 |
+| `npm run dev` | 同步版本 + 启动 Worker 开发服务器 |
+| `npm run dev:frontend` | 启动前端开发服务器 |
+| `npm run build` | 同步版本 + 构建前端生产版本 |
+| `npm run deploy` | 构建前端 + 部署 Worker 到 Cloudflare |
+| `npm run release` | 完整发布流程（同步版本 + 构建 + 部署） |
 
 > **提示**: 前端开发时会自动代理 API 请求到后端服务器（见 `frontend/.env` 配置）
+
+### 版本维护
+
+**单一版本来源原则**：项目版本号统一在根目录 `package.json` 的 `version` 字段维护。
+
+同步脚本会自动更新以下位置：
+- `worker/src/core/constants.js` - 后端版本常量
+- `frontend/package.json` - 前端版本号（Vite 构建时注入）
+- `VERSION.md` - 版本文档标题
+
+**发布新版本流程**：
+1. 更新根目录 `package.json` 的 `version` 字段
+2. 运行 `npm run sync-version` 同步版本
+3. 更新 `VERSION.md` 添加版本更新说明
+4. 运行 `npm run release` 构建并部署
 
 ---
 
