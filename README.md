@@ -67,7 +67,7 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/rabbitwit/PT-Gen-Refactor.git
+git clone https://github.com/jeroldtsao/PT-Gen-Refactor.git
 cd PT-Gen-Refactor
 ```
 
@@ -352,7 +352,7 @@ npm run deploy
 
 #### 使用预构建 bundle（无本地构建环境）
 
-从 [build 分支](https://github.com/rabbitwit/PT-Gen-Refactor/tree/build) 下载 `bundle.js`：
+从 [build 分支](https://github.com/jeroldtsao/PT-Gen-Refactor/tree/build) 下载 `bundle.js`：
 
 1. 重命名为 `index.js`
 2. 上传到 Cloudflare Worker 控制台
