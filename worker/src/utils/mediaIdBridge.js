@@ -369,6 +369,55 @@ const resolveByName = async (name, year, env) =>
         env,
     );
 
+const TMDB_FIND_URL = "https://api.themoviedb.org/3/find";
+
+const fetchMovieInfoByImdbIdViaTmdb = async (imdbid, env) => {
+    const TMDB_API_KEY = env?.TMDB_API_KEY;
+    if (!TMDB_API_KEY) {
+        return null;
+    }
+
+    try {
+        const url = `${TMDB_FIND_URL}/${encodeURIComponent(imdbid)}?api_key=${encodeURIComponent(TMDB_API_KEY)}&external_source=imdb_id`;
+        const response = await fetchTextWithTimeout(url, {headers: BRIDGE_HEADERS}, DEFAULT_TIMEOUT);
+
+        if (!response.ok) {
+            logger.warn("TMDB find API failed", {imdbid, status: response.status});
+            return null;
+        }
+
+        const data = await response.json();
+
+        const movieResults = data?.movie_results || [];
+        const tvResults = data?.tv_results || [];
+        const tvEpisodeResults = data?.tv_episode_results || [];
+
+        const firstResult = movieResults[0] || tvResults[0] || tvEpisodeResults[0];
+
+        if (!firstResult) {
+            logger.info("TMDB find API: no results found", {imdbid});
+            return null;
+        }
+
+        const title = firstResult.title || firstResult.name || "";
+        const originalTitle = firstResult.original_title || firstResult.original_name || "";
+        const releaseDate = firstResult.release_date || firstResult.first_air_date || "";
+        const year = releaseDate ? releaseDate.slice(0, 4) : "";
+
+        logger.info("TMDB find API: found movie info", {imdbid, title, year});
+
+        return {
+            title,
+            original_title: originalTitle,
+            name: title,
+            year,
+        };
+    } catch (error) {
+        logger.warn("TMDB find API error", {imdbid, error: error.message});
+        return null;
+    }
+};
+
 const resolveByImdbId = async (imdbid, env) =>
     withBridgeCache(
         `imdb_${imdbid}`,
@@ -377,12 +426,24 @@ const resolveByImdbId = async (imdbid, env) =>
             const {gen_imdb} = await getProviders();
             const imdbData = await gen_imdb(imdbid, env);
 
-            if (!imdbData?.success) {
-                throw new NotFoundError("Not Found");
+            let year = "";
+            let candidates = [];
+
+            if (imdbData?.success) {
+                year = normalizeYear(imdbData?.year) || "";
+                candidates = buildNameCandidates(imdbData);
+            } else {
+                logger.warn("Media ID Bridge: gen_imdb failed, trying TMDB fallback", {imdbid});
+                const tmdbData = await fetchMovieInfoByImdbIdViaTmdb(imdbid, env);
+                if (tmdbData) {
+                    year = normalizeYear(tmdbData?.year) || "";
+                    candidates = buildNameCandidates(tmdbData);
+                }
             }
 
-            const year = normalizeYear(imdbData?.year) || "";
-            const candidates = buildNameCandidates(imdbData);
+            if (candidates.length === 0) {
+                throw new NotFoundError("Not Found");
+            }
 
             for (const candidate of candidates) {
                 const results = await withSearchRetry(() => searchWmdbByName(candidate, year));
