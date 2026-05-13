@@ -11,6 +11,7 @@
 ### 功能优化
 
 - 保持媒体 ID 桥接接口与现有 PT-Gen API 鉴权、响应格式和缓存机制一致
+- 优化媒体 ID 桥接的 IMDb ID 查询：配置 `TMDB_API_KEY` 时优先使用 TMDB External ID 精确匹配，并通过豆瓣搜索补全豆瓣 ID
 - 补充媒体 ID 桥接接口的 HTTP Client 示例
 - 更新 README，增加媒体 ID 桥接接口和 GitHub Actions 手动部署说明
 

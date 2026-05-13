@@ -527,6 +527,7 @@ Body: {"url": "{resource_url}"}
 | `key` | string | 条件 | API 密钥（如配置了 API_KEY 则必填） |
 
 > `imdbid`、`doubanid`、`name` 三者至少提供一个；优先级为 `imdbid` > `doubanid` > `name`。
+> 配置 `TMDB_API_KEY` 后，`imdbid` 查询会优先通过 TMDB 官方 External ID 接口精确匹配 movie/tv，再回查豆瓣搜索补充 `doubanid`，可覆盖 WMDB 搜索索引缺失的条目。
 
 **调用示例**
 
@@ -553,13 +554,15 @@ Body: {"url": "{resource_url}"}
       "doubanid": 1292052,
       "imdbid": "tt0111161",
       "name": "肖申克的救赎",
-      "year": "1994"
+      "year": "1994",
+      "tmdbid": 278,
+      "tmdbtype": "movie"
     }
   ]
 }
 ```
 
-> **注意**：IMDb 搜索可能触发 WAF 保护，建议配置 `TMDB_API_KEY` 作为回退方案。
+> **注意**：IMDb 搜索可能触发 WAF 保护，建议配置 `TMDB_API_KEY` 作为 IMDb ID 查询和英文搜索的回退方案。
 
 ### 响应格式
 

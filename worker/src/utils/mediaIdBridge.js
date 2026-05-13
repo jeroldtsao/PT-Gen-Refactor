@@ -1,14 +1,17 @@
 import {VERSION, DEFAULT_TIMEOUT} from "../core/constants.js";
 import {ApiError, NotFoundError, RateLimitError, ValidationError} from "../core/errors.js";
 import {_withCache} from "./cache.js";
+import {getDouBanHeaders} from "../core/config.js";
 import logger from "../logger.js";
 
 const WMDB_SEARCH_URL = "https://api.wmdb.tv/api/v1/movie/search";
 const WMDB_DETAIL_URL = "https://api.wmdb.tv/movie/api";
+const TMDB_API_URL = "https://api.themoviedb.org/3";
+const DOUBAN_SEARCH_URL = "https://search.douban.com/movie/subject_search";
 const AVAILABLE_PARAMS = ["imdbid", "doubanid", "name", "year"];
 const DEFAULT_SEARCH_LIMIT = 10;
 const BRIDGE_SITE = "media_id_bridge";
-const BRIDGE_CACHE_VERSION = "v2";
+const BRIDGE_CACHE_VERSION = "v3";
 
 const BRIDGE_HEADERS = Object.freeze({
     Accept: "application/json",
@@ -36,6 +39,15 @@ const firstNonEmpty = (...values) => {
     return "";
 };
 
+const safeParseJson = (text) => {
+    if (!text) return null;
+    try {
+        return JSON.parse(String(text).replace(/[\r\n]/g, "").trim());
+    } catch {
+        return null;
+    }
+};
+
 const normalizeDoubanId = (value) => {
     const raw = String(value ?? "").trim();
     if (!raw) return "";
@@ -60,6 +72,17 @@ const normalizeYear = (value) => {
     if (!raw) return "";
     if (!/^\d{4}$/.test(raw)) return null;
     return raw;
+};
+
+const normalizeTmdbType = (value) => {
+    const raw = String(value ?? "").trim().toLowerCase();
+    return raw === "movie" || raw === "tv" ? raw : "";
+};
+
+const normalizeTmdbId = (value) => {
+    const raw = String(value ?? "").trim();
+    if (!raw) return "";
+    return /^\d+$/.test(raw) ? raw : "";
 };
 
 const toDoubanIdValue = (value) => {
@@ -92,6 +115,21 @@ const getLocalizedName = (item) => {
     return firstNonEmpty(item?.name, item?.originalName);
 };
 
+const cleanTitle = (value) =>
+    String(value ?? "")
+        .replace(/\u200e/g, "")
+        .replace(/\s*\(\d{4}\)\s*$/, "")
+        .trim();
+
+const getBridgeItemKey = (item) =>
+    [
+        item?.doubanid ? `douban:${item.doubanid}` : "",
+        item?.imdbid ? `imdb:${item.imdbid}` : "",
+        item?.tmdbid && item?.tmdbtype ? `tmdb:${item.tmdbtype}:${item.tmdbid}` : "",
+    ]
+        .filter(Boolean)
+        .join("|");
+
 const toBridgeItem = (item) => {
     if (!item || typeof item !== "object") {
         return null;
@@ -101,6 +139,10 @@ const toBridgeItem = (item) => {
         firstNonEmpty(item.doubanId, item.doubanid),
     );
     const imdbid = normalizeImdbId(firstNonEmpty(item.imdbId, item.imdbid));
+    const tmdbid = normalizeTmdbId(firstNonEmpty(item.tmdbId, item.tmdbid));
+    const tmdbtype = normalizeTmdbType(
+        firstNonEmpty(item.tmdbType, item.tmdbtype),
+    );
     const year = firstNonEmpty(item.year);
     const name = getLocalizedName(item);
 
@@ -113,13 +155,14 @@ const toBridgeItem = (item) => {
         imdbid,
         name,
         year,
+        ...(tmdbid && tmdbtype ? {tmdbid: toDoubanIdValue(tmdbid), tmdbtype} : {}),
     };
 };
 
 const dedupeItems = (items) => {
     const seen = new Set();
     return items.filter((item) => {
-        const key = `${item?.doubanid ?? ""}:${item?.imdbid ?? ""}`;
+        const key = getBridgeItemKey(item);
         if (!item || seen.has(key)) {
             return false;
         }
@@ -149,6 +192,58 @@ const pickPreferredBridgeItem = (items, imdbid) => {
     }
 
     return items[0] || null;
+};
+
+const scoreDoubanSearchItem = (item, candidate) => {
+    const title = cleanTitle(item?.title);
+    const abstract = String(item?.abstract || "").toLowerCase();
+    const candidateTitle = cleanTitle(candidate?.name || candidate?.original_name);
+    const originalTitle = cleanTitle(candidate?.original_name);
+    const candidateYear = normalizeYear(candidate?.year) || "";
+
+    let score = 0;
+    if (candidateYear && String(item?.year || "") === candidateYear) score += 3;
+    if (candidateTitle && title.includes(candidateTitle)) score += 5;
+    if (originalTitle && title.toLowerCase().includes(originalTitle.toLowerCase())) {
+        score += 4;
+    }
+    if (candidate?.tmdbtype === "tv" && item?.subtype === "tv") score += 2;
+    if (candidate?.tmdbtype === "movie" && item?.subtype === "movie") score += 2;
+    if (originalTitle && abstract.includes(originalTitle.toLowerCase())) score += 2;
+
+    return score;
+};
+
+const buildBridgeItem = ({
+    doubanid = "",
+    imdbid = "",
+    name = "",
+    year = "",
+    tmdbid = "",
+    tmdbtype = "",
+}) => {
+    const normalizedDoubanId = normalizeDoubanId(doubanid);
+    const normalizedImdbId = normalizeImdbId(imdbid);
+    const normalizedYear = normalizeYear(year) || firstNonEmpty(year);
+    const normalizedTmdbId = normalizeTmdbId(tmdbid);
+    const normalizedTmdbType = normalizeTmdbType(tmdbtype);
+
+    if (!normalizedImdbId) {
+        return null;
+    }
+
+    return {
+        ...(normalizedDoubanId ? {doubanid: toDoubanIdValue(normalizedDoubanId)} : {}),
+        imdbid: normalizedImdbId,
+        name: firstNonEmpty(name),
+        year: normalizedYear,
+        ...(normalizedTmdbId && normalizedTmdbType
+            ? {
+                tmdbid: toDoubanIdValue(normalizedTmdbId),
+                tmdbtype: normalizedTmdbType,
+            }
+            : {}),
+    };
 };
 
 const fetchTextWithTimeout = async (url, options = {}, timeout = DEFAULT_TIMEOUT) => {
@@ -193,13 +288,13 @@ const fetchWmdbJson = async (url, timeout = DEFAULT_TIMEOUT) => {
         );
     }
 
-    try {
-        return JSON.parse(text);
-    } catch (error) {
+    const parsed = safeParseJson(text);
+    if (!parsed) {
         throw new ApiError("WMDB returned invalid JSON.", 502, {
-            detail: error.message,
+            detail: "Unable to parse response body.",
         });
     }
+    return parsed;
 };
 
 const buildSearchUrl = (name, year, lang) => {
@@ -225,6 +320,215 @@ const fetchWmdbByDoubanId = async (doubanid) => {
     const url = new URL(WMDB_DETAIL_URL);
     url.searchParams.set("id", doubanid);
     return toBridgeItem(await fetchWmdbJson(url.toString(), 12000));
+};
+
+const fetchTmdbJson = async (url, timeout = DEFAULT_TIMEOUT) => {
+    const response = await fetchTextWithTimeout(
+        url,
+        {
+            headers: {
+                Accept: "application/json",
+                "User-Agent": `PT-Gen-Refactor/${VERSION}`,
+            },
+        },
+        timeout,
+    );
+    const text = await response.text();
+
+    if (!response.ok) {
+        if (response.status === 401) {
+            throw new ApiError("TMDB API key invalid.", 401);
+        }
+        if (response.status === 429) {
+            throw new RateLimitError("TMDB API rate limit exceeded.");
+        }
+        throw new ApiError(
+            `TMDB request failed with status ${response.status}.`,
+            response.status,
+        );
+    }
+
+    const parsed = safeParseJson(text);
+    if (!parsed) {
+        throw new ApiError("TMDB returned invalid JSON.", 502, {
+            detail: "Unable to parse response body.",
+        });
+    }
+    return parsed;
+};
+
+const pickTmdbMatch = (payload) => {
+    const resultSets = [
+        {type: "movie", results: payload?.movie_results},
+        {type: "tv", results: payload?.tv_results},
+    ];
+
+    for (const {type, results} of resultSets) {
+        if (Array.isArray(results) && results.length > 0) {
+            return {type, data: results[0]};
+        }
+    }
+
+    return null;
+};
+
+const fetchTmdbByImdbId = async (imdbid, env) => {
+    const apiKey = env?.TMDB_API_KEY;
+    if (!apiKey) {
+        return null;
+    }
+
+    const url = new URL(`${TMDB_API_URL}/find/${encodeURIComponent(imdbid)}`);
+    url.searchParams.set("api_key", apiKey);
+    url.searchParams.set("external_source", "imdb_id");
+    url.searchParams.set("language", "zh-CN");
+
+    const payload = await fetchTmdbJson(url.toString(), 8000);
+    const match = pickTmdbMatch(payload);
+    if (!match?.data?.id) {
+        return null;
+    }
+
+    const releaseDate = firstNonEmpty(
+        match.data.release_date,
+        match.data.first_air_date,
+    );
+    const item = buildBridgeItem({
+        imdbid,
+        name: firstNonEmpty(match.data.name, match.data.title, match.data.original_name, match.data.original_title),
+        year: releaseDate ? releaseDate.slice(0, 4) : "",
+        tmdbid: match.data.id,
+        tmdbtype: match.type,
+    });
+
+    Object.defineProperty(item, "_searchNames", {
+        value: [
+            match.data.name,
+            match.data.title,
+            match.data.original_name,
+            match.data.original_title,
+        ]
+            .map((value) => String(value ?? "").trim())
+            .filter(Boolean),
+        enumerable: false,
+    });
+
+    return item;
+};
+
+const parseDoubanSearchTitle = (title) => {
+    const normalized = String(title ?? "").replace(/\u200e/g, "").trim();
+    const yearMatch = normalized.match(/\((\d{4})\)\s*$/);
+    return {
+        name: cleanTitle(normalized),
+        year: yearMatch ? yearMatch[1] : "",
+    };
+};
+
+const parseDoubanSearchItem = (item) => {
+    if (!item || typeof item !== "object") {
+        return null;
+    }
+
+    const doubanid = normalizeDoubanId(firstNonEmpty(item.id));
+    if (!doubanid) {
+        return null;
+    }
+
+    const {name, year: titleYear} = parseDoubanSearchTitle(item.title);
+    const abstractYear = String(item.abstract || "").match(/(?:^|\D)(\d{4})(?:\D|$)/)?.[1] || "";
+    const labels = Array.isArray(item.labels) ? item.labels : [];
+    const labelText = labels.map((label) => label?.text || "").join("/");
+
+    return {
+        doubanid: toDoubanIdValue(doubanid),
+        name,
+        year: firstNonEmpty(titleYear, abstractYear),
+        subtype: /剧集|电视|TV|tv/.test(labelText) ? "tv" : "movie",
+        title: firstNonEmpty(item.title),
+        abstract: firstNonEmpty(item.abstract),
+    };
+};
+
+const parseDoubanSearchPayload = (html) => {
+    const match = String(html || "").match(
+        /window\.__DATA__\s*=\s*({[\s\S]*?});?\s*(?:window\.__USER__|<\/script>|$)/,
+    );
+    if (!match) {
+        return [];
+    }
+
+    const parsed = safeParseJson(match[1]);
+    if (!parsed || parsed.error_info === "搜索访问太频繁。") {
+        return [];
+    }
+
+    const items = Array.isArray(parsed.items) ? parsed.items : [];
+    return items.map(parseDoubanSearchItem).filter(Boolean);
+};
+
+const searchDoubanByName = async (name, env) => {
+    const url = new URL(DOUBAN_SEARCH_URL);
+    url.searchParams.set("search_text", name);
+    url.searchParams.set("cat", "1002");
+
+    const response = await fetchTextWithTimeout(
+        url.toString(),
+        {headers: getDouBanHeaders(env)},
+        12000,
+    );
+    const html = await response.text();
+
+    if (!response.ok) {
+        logger.warn("Douban search request failed", {
+            status: response.status,
+            name,
+        });
+        return [];
+    }
+
+    return parseDoubanSearchPayload(html);
+};
+
+const resolveDoubanIdForCandidate = async (candidate, env) => {
+    const names = [
+        ...(Array.isArray(candidate?._searchNames) ? candidate._searchNames : []),
+        candidate?.name,
+        candidate?.original_name,
+    ]
+        .map((value) => String(value ?? "").trim())
+        .filter(Boolean);
+    const seen = new Set();
+    const uniqueNames = names.filter((name) => {
+        const key = name.toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+
+    for (const name of uniqueNames) {
+        try {
+            const results = await searchDoubanByName(name, env);
+            if (results.length === 0) {
+                continue;
+            }
+
+            const scored = results
+                .map((item) => ({item, score: scoreDoubanSearchItem(item, candidate)}))
+                .sort((a, b) => b.score - a.score);
+            const best = scored[0];
+            if (best?.score >= 3) {
+                return best.item;
+            }
+        } catch (error) {
+            logger.warn("Douban search fallback failed", {
+                name,
+                error: error.message,
+            });
+        }
+    }
+
+    return null;
 };
 
 const buildNameCandidates = (imdbData) => {
@@ -261,6 +565,24 @@ const withSearchRetry = async (searchFn) => {
         await delay(10500);
         return await searchFn();
     }
+};
+
+const attachDoubanFromSearch = async (item, env) => {
+    if (!item || item.doubanid) {
+        return item;
+    }
+
+    const doubanItem = await resolveDoubanIdForCandidate(item, env);
+    if (!doubanItem) {
+        return item;
+    }
+
+    return {
+        ...item,
+        doubanid: doubanItem.doubanid,
+        name: firstNonEmpty(doubanItem.name, item.name),
+        year: firstNonEmpty(doubanItem.year, item.year),
+    };
 };
 
 const resolveByDoubanId = async (doubanid, env) =>
@@ -374,17 +696,55 @@ const resolveByImdbId = async (imdbid, env) =>
         `imdb_${imdbid}`,
         async () => {
             logger.info("Media ID Bridge: resolve by IMDb ID", {imdbid});
+            let tmdbItem = null;
+
+            try {
+                tmdbItem = await fetchTmdbByImdbId(imdbid, env);
+            } catch (error) {
+                logger.warn("TMDB IMDb external ID lookup failed", {
+                    imdbid,
+                    error: error.message,
+                });
+            }
+
+            if (tmdbItem) {
+                const enriched = await attachDoubanFromSearch(tmdbItem, env);
+                if (enriched?.doubanid) {
+                    return {
+                        success: true,
+                        site: BRIDGE_SITE,
+                        query_type: "imdbid",
+                        data: [enriched],
+                    };
+                }
+            }
+
             const {gen_imdb} = await getProviders();
             const imdbData = await gen_imdb(imdbid, env);
 
-            if (!imdbData?.success) {
+            if (!imdbData?.success && !tmdbItem) {
                 throw new NotFoundError("Not Found");
             }
 
-            const year = normalizeYear(imdbData?.year) || "";
-            const candidates = buildNameCandidates(imdbData);
+            const tmdbName = tmdbItem?.name;
+            const tmdbYear = normalizeYear(tmdbItem?.year) || "";
+
+            const year = normalizeYear(imdbData?.year) || tmdbYear || "";
+            const candidates = [
+                ...buildNameCandidates(imdbData),
+                tmdbName,
+            ]
+                .map((value) => String(value ?? "").trim())
+                .filter(Boolean);
+            const seenCandidates = new Set();
 
             for (const candidate of candidates) {
+                const candidateKey = candidate.toLowerCase();
+                if (seenCandidates.has(candidateKey)) {
+                    continue;
+                }
+                seenCandidates.add(candidateKey);
+
                 const results = await withSearchRetry(() => searchWmdbByName(candidate, year));
                 const exact = results.find((item) => item.imdbid === imdbid);
                 if (exact) {
@@ -394,6 +754,25 @@ const resolveByImdbId = async (imdbid, env) =>
                         site: BRIDGE_SITE,
                         query_type: "imdbid",
                         data: [localized],
+                    };
+                }
+            }
+
+            if (tmdbItem) {
+                const doubanItem = await resolveDoubanIdForCandidate(tmdbItem, env);
+                if (doubanItem) {
+                    return {
+                        success: true,
+                        site: BRIDGE_SITE,
+                        query_type: "imdbid",
+                        data: [
+                            {
+                                ...tmdbItem,
+                                doubanid: doubanItem.doubanid,
+                                name: firstNonEmpty(doubanItem.name, tmdbItem.name),
+                                year: firstNonEmpty(doubanItem.year, tmdbItem.year),
+                            },
+                        ],
                     };
                 }
             }
