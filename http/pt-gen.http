@@ -289,7 +289,7 @@ Content-Type: application/json
   "imdbid": "tt0111161"
 }
 
-<> response/2026-05-12T192636.200.json
+<> response/2026-05-13T090448.200.json
 
 ### POST - 通过 Douban ID 查询
 POST {{baseUrl}}/api/media-id-bridge?key={{apiKey}}
@@ -311,4 +311,4 @@ Accept: application/json
   "year": "2005"
 }
 
-<> response/2026-05-12T192709.200.json
+<> response/2026-05-13T090343.200.json
